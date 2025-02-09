@@ -19,7 +19,7 @@ linkedin_username: "renard-korzeniowski-a08769b8"
 #########################################################################################
 ######### Nothing below needs to be changed (unless you know what you're doing) #########
 #########################################################################################
-theme: "midnight"
+theme: "minima"
 
 rss: rss
 
