@@ -31,4 +31,4 @@ ForEach ($thing in $things) {
 }
 ```
 
-![test image](../test_umap.jpg)
+![test image](https://raw.githubusercontent.com/RKorzeniowski/rkorzeniowski/refs/heads/main/test_umap.jpg)
