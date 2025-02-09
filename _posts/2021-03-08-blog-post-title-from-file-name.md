@@ -30,3 +30,5 @@ ForEach ($thing in $things) {
     Write-Output "It highlights it using the GitHub style"
 }
 ```
+
+![test image](https://github.com/RKorzeniowski/rkorzeniowski/blob/main/test_umap.jpg)
