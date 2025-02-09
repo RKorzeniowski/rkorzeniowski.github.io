@@ -1,13 +1,14 @@
-title: "My Blogs Name"
-author: "Default Author Name"
-description: "Some short description of your blog can go here." # This will show up in places like twitter, linkedin, etc, if you share your sites url as a post.
+title: "The Rabbit Hole" # The Deep Dive, Unfolding Layers, Inside The Black Box, The Art of Learning, The Rabbit Hole
+author: "Renard Korzeniowski"
+description: "One machine learning discovery deeper into a Wonderland at a time." # This will show up in places like twitter, linkedin, etc, if you share your sites url as a post.
+# Through the Looking-glass and what AI will bring us
 
 # Email / Social media user names used by the minima theme:
 # All of these are optional and can be removed or commented out
-email: "example@mail.com"
-twitter_username: "twitteruser"
-github_username: "githubuser"
-linkedin_username: "linkedinuser"
+email: "korzeniowski.renard@mail.com"
+#twitter_username: "twitteruser"
+github_username: "RKorzeniowski"
+linkedin_username: "renard-korzeniowski-a08769b8"
 #facebook_username: username
 #flickr_username: username
 #instagram_username: username
