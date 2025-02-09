@@ -1,5 +1,2 @@
-Here you can say lots of fun things about your site.
-
-Maybe say a some things about yourself.
-
-Or maybe what you plan to blog about.
+# Welcome to my blog! 
+I'm Renard and I've been facinated by the concept of artifical intelligence since I was a kid. The first time I started pondering about the concept was while playing Warcraft III when I was asking myself a question "how does the computer know what to do?". Back then it was just a bunch of relatively simple rules but it got me on a road that I am today as an Applied Scientist in Amazon. I belive that the best way to really understand how something works is to try to build it yourself. What I love about working on AI is that every useful claim can be verifed empirically. I will try to include both simple intuitions, some math and code since you can make magic happen just by running someone else's code but you need all of them to be a wizzard yourself. AI is notorious for being hard to keep up with so I will be only covering what I find most interesting which usually ends up being promising new modeling paradigms like diffusion models, impactful trends like agentic AI, neat tricks that make things work and insightful takes on how things work. This blog is mainly a way for me to improve my understanding, since the best way to learn is to try to explain clearly, and if it helps someone that's a bonus! 
