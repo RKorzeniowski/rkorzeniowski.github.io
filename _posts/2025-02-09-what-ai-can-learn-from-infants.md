@@ -1,7 +1,5 @@
 # What AI Can Learn From Infants
 
-`Date: February 09, 2025 | Author: Renard Korzeniowski `
-
 ## Table of Contents
 1. [Neuroscience Perspective](#sec_neuro_per)
 2. [Developmental Psychology Perspective](#sec_dev_per)
@@ -84,4 +82,8 @@ What could we learn from dev psy.
   - explicit cognition: involves having awarness of knowledge or of thought process. Usually being able to describe it in words
   - implicity cognition: works outside of awarness and is hard to describe in words e.g. knowing how to ride a bike or feeling that animal is sick
 - (learning as a group with hidden information rather than individuals?)
+
+
+## References
+- [1] XYZ
 
