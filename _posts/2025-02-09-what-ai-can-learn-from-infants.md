@@ -9,21 +9,9 @@
 6. [Unique Aspects of Machine Intelligence](#sec_uniq_machine_int)
 7. [Glimpses of the Future](#sec_future)
 
-AI models are amazing and can do cool stuff already but to unlock thier full potential there are a few problems that we need to overcome. 
+The pace of artificial intelligence innovation in 2025 isn’t just accelerating—it’s redefining what’s possible. Imagine AI agents that don’t just follow instructions but orchestrate entire workflows autonomously, like resolving customer service issues end-to-end, processing payments, and even detecting fraud in real time—all while mimicking human reasoning 17. Healthcare is witnessing a revolution, too: passive monitoring devices now track your health metrics 24/7, flagging anomalies like cognitive decline through voice analysis or detecting early-stage diseases with 99% accuracy—sometimes before symptoms even appear 10. Meanwhile, multimodal AI is breaking creative barriers, transforming text prompts into cinematic-quality videos or crafting interactive virtual worlds that adapt to user inputs in real time 46. And for everyday magic, tools like Microsoft Copilot Vision analyze your screen’s content to summarize meetings, prioritize tasks, or even explain complex diagrams—making productivity feel almost effortless 7. This isn’t just progress; it’s a leap into a future where AI isn’t a tool but a collaborator, reshaping work, health, and creativity in ways we’re only beginning to grasp. But to get there we need to solve a few critical problems.
 
-First lets expand a bit on all of the above. AI models are amazing because chatbots, image generation, zeroshot task solving via prompting. 
-By the full potential I mean 
-1. Multimodality: allowing models to interact with a world in a more similar way to humans since sight and hearing will unlock new functionality that was not 
-possible with only text reasoning or only image reasoning
-2. Agents: instead of humans doing all the planing as well as verificantion and only relying on LLM to peform well defined simpled tasks we will be able to provide 
-high level goals
-3. Embodiment: allowing AI to interact with phisical world via some form of a body. The effects on blue collar sector will be similar to the impact of automation on manufacturing.
-Invididual will become increadbly more productive. If well organized leading to prosperity and ability to focus on even greather achivments. 
-
-Having that said problems like 
-1. Lack of data both in terms of it not existing and no real feasability of creating such datasets suitable for our current generation of models,
-2. Low computational efficiency needed to process dynamic world around us,
-3. Planning far into the future and correcting errors madealong the way, inaccurate word models, hallucinations, social aspect, learning online (no need for backprop). 
+But bridging this gap requires tackling quite a few thorny challenges head-on, to mention some of them. First, the data drought plagues niche domains like rare disease diagnosis and ultra-personalized robotics—where datasets either don’t exist or can’t feasibly scale to the trillion-token appetites of modern models. Second, today’s computational engines struggle to keep pace with the real world’s chaos: autonomous drones still stutter when processing dynamic environments, burning unsustainable energy to analyze shifting variables like weather or crowds. Third, while GPT-4 can write a sonnet, it falters at long-horizon planning—imagine an AI construction manager failing to adjust timelines when a material shortage arises six months into a project. Fourth, even state-of-the-art models harbor inaccurate world models, like believing "turning up a thermostat cools a room" (a real GPT-4 error). Fifth, hallucinations persist as silent saboteurs—medical AIs inventing plausible-but-fake drug interactions or legal tools citing non-existent precedents. Finally, the elephant in the room: backpropagation. This 50-year-old algorithm remains the backbone of modern AI, but its inefficiency and biological implausibility limit systems like Tesla’s Optimus robot, which can’t afford days of training to learn a single new task. Solving these isn’t just academic—it’s the price of admission for an AI future that’s truly robust, adaptive, and aligned with our messy reality.
 
 ## Neuroscience (maybe it was called differently) Perspective<a name="sec_neuro_per"></a>
 
