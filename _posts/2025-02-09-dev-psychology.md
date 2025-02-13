@@ -174,21 +174,28 @@ Machine intelligence operates under paradigms fundamentally alien to biological 
 
 ## Glimpses of the Future <a name="sec_future"></a>
 
-What could we learn from dev psy. 
-- [Lynda Smith Nips 2024] ideas about episodic learning, 
-- leaning more on selective learning and making it more active, (check what other things were said). 
-- feedback loops for adjusting task complexity
-- "allowing models to explore the real world" rather than using static data. humans are not passive percivers but active explorers
-- Copy study techniques to understand model behavior and compare with human learning biases (examples of hallucinations in humans)
-- U-shaped developmental pattern (expert models as training wheels in early stages of training)
-- intermodal integrations: build-in from very early on in humans and very important (check more on that)
-- infant reason differently about social and non-social agents. infantes interpret actions of other social agents in terms of goals. They also encode events in terms of goals but only when it's performed by social agent
-(attachment as basis of children social bonds?)
-- Two systems 
-  - explicit cognition: involves having awarness of knowledge or of thought process. Usually being able to describe it in words
-  - implicity cognition: works outside of awarness and is hard to describe in words e.g. knowing how to ride a bike or feeling that animal is sick
-- (learning as a group with hidden information rather than individuals?)
+Developmental psychology offers a treasure trove of principles that could revolutionize how AI systems learn, adapt, and interact. Below, we explore key insights and their potential applications to machine intelligence:  
 
+1. **Episodic Learning & Active Exploration**  
+   Human infants learn through *episodic experiences*—sequencing actions, reflecting on outcomes, and refining strategies. AI could adopt similar frameworks, such as **episodic reinforcement learning**, where agents store and replay critical experiences to guide future decisions. For instance, the *SocialAI School* demonstrates how RL agents trained in procedurally generated environments mimic children’s staged mastery of tasks like joint attention, progressing from simple interactions to complex cultural learning. This aligns with Lynda Smith’s work on **active selective learning**, where agents prioritize tasks matching their current competence (e.g., focusing on low-resolution patterns before tackling complex scenes), mirroring infants’ preference for edges over intricate shapes. Unlike static datasets, dynamic environments allow models to “explore the real world” through trial and error, fostering curiosity-driven discovery akin to toddlers manipulating objects to infer physics.  
+
+2. **Feedback Loops & Scaffolded Complexity**  
+   Children thrive under **scaffolded learning**, where caregivers gradually increase task difficulty. AI systems could emulate this via *adaptive curriculum learning*—automatically adjusting task complexity based on performance. For example, the *SocialAI School* uses parameterized environments to simulate Bruner’s “formats,” where agents learn communication protocols through incremental challenges. Similarly, **U-shaped developmental patterns**—where skill proficiency dips before mastery—suggest early training phases should employ “expert models as training wheels.” For instance, GPT-4’s initial fine-tuning on high-quality human feedback (RLHF) mirrors this phase, later transitioning to self-improvement loops.  
+
+3. **Intermodal Integration & Social Cognition**  
+   Infants seamlessly integrate sensory inputs (e.g., sight, sound, touch) to form cohesive world models—a capability AI often lacks. **Intermodal architectures**, like multimodal transformers, could unify vision, language, and proprioception from the outset, mimicking developmental milestones. Crucially, infants distinguish *social agents* (goal-driven actors) from *non-social objects*, a skill critical for theory of mind. AI could adopt this dichotomy: training separate modules for social reasoning (e.g., inferring intent in collaborative tasks) and physical causality (e.g., predicting object trajectories), as seen in *SocialAI School*’s benchmarks. This mirrors how children encode actions as goal-directed only when performed by social agents, a foundation for trust and collaboration.  
+
+4. **Dual Systems: Explicit vs. Implicit Cognition**  
+   Human learning operates through two parallel systems:  
+- **Explicit cognition**: Conscious, verbalizable knowledge (e.g., explaining math rules).  
+- **Implicit cognition**: Subconscious, procedural mastery (e.g., riding a bike).  
+
+   AI could benefit from this divide: *Hybrid architectures* might combine symbolic reasoning (explicit) with deep learning (implicit). For instance, “hallucinations” in LLMs—akin to human false memories—could be mitigated by aligning implicit pattern recognition with explicit fact-checking modules. Studies show humans internalize AI biases unconsciously, highlighting the need for systems that surface implicit assumptions for scrutiny.  
+
+5. **Collaborative Learning & Hidden Information**  
+   Children learn not just individually but through *group dynamics*, sharing partial knowledge to solve collective puzzles. AI could replicate this via **decentralized multi-agent systems**, where agents with specialized skills (e.g., vision, language) collaborate under partial observability. The *SocialAI School*’s multi-agent experiments reveal how shared cultural norms emerge from decentralized interactions, akin to children adopting classroom rituals. Similarly, **hidden information games**—where agents must infer peers’ unobserved states—could teach AI to model uncertainty and negotiate, much like toddlers bargaining over toys.  
+
+By reverse-engineering developmental milestones—from intermodal integration to scaffolded curricula—AI can transcend brute-force scaling. For instance, *feedback loops* that adjust task difficulty in real time (e.g., increasing image resolution as a vision model improves) mimic intuitive children self-pacing. Meanwhile, studying human cognitive biases offers diagnostic tools to align AI with robust, human-like reasoning. The future lies not in copying biology but in distilling its *optimization blueprints*: efficiency, adaptability, and social grounding.
 
 ## References
 - [1] XYZ
