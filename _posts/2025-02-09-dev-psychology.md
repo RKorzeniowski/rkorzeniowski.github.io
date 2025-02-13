@@ -1,4 +1,4 @@
-# What AI Can Learn From Infants
+# What AI Can Learn From Children?
 
 ## Table of Contents
 1. [Neuroscience Perspective](#sec_neuro_per)
@@ -144,13 +144,18 @@ Attention reduces computational waste by focusing resources, much like the thala
 Curiosity loss overcomes sparse rewards, replicating evolutionary survival strategies.
 LSTMs mitigate vanishing gradients by mimicking synaptic plasticity rules.
 
-## Trash or Treasure <a name="sec_uniq_human_int"></a>
+## Why Care About Nature's Problems? <a name="sec_uniq_human_int"></a>
 
-(Think if limitations are not a source of development. Like civilizations in cold regions had to be more resourceful and learn to plan while civilizations in hot regions did not have to focus on this aspects and fell behind. Initial disadvantage turning into advantage in the long run)
-What Is Not Applicable From Humans to AI.
-Disadvantages we don't have to worry about: having a valid system at any moment of development. 
-Advandates we can't use amazing body, mental tools, existing experts
+When drawing from biology to solve AI challenges, discerning *what to emulate* versus *what to discard* is critical. Biological systems evolved under constraints that don’t bind artificial intelligence, freeing us to cherry-pick principles while sidestepping evolutionary baggage.  
 
+1. **Mandatory Validity at Every Developmental Stage**  
+   Humans must remain functional throughout maturation - toddler’s brain can’t crash during language acquisition. AI faces no such limitation: training can involve catastrophic failures as long as the final model converges. This allows radical experimentation, like neural architecture search algorithms that mutate through millions of invalid configurations before discovering optimal designs.
+2. **Metabolic Upkeep**
+   Biological systems dedicate multiple brain areas and ~20% of energy to baseline functions (e.g., respiration). AI requires no such "overhead" and we should ignore neurological system and biases dedicated to this purpuse. Same goes to all cognitive hyper specializations related to survival in harsh environment while detrimental to general intelligence.
+4. **Pain/fear responses**
+   Humans evolved intricate mechanisms to balance exploration exploitation dilemma. "Fight or flight" response, fear as an emotion itself. While they served us well they are quite specific to our limitations. If considered in a highly abstract way they could be useful but we should be careful not to get some "unintended luggage".
+
+   
 ## Unique Aspects of Machine Intelligence <a name="sec_uniq_machine_int"></a>
 
 What are unique aspect of how machines learn that what one machine learns can be instantly shared with all of them. That's why it's worth investing crazy ammount of money
