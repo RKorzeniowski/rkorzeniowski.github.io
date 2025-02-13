@@ -170,15 +170,6 @@ where $\delta^l$ is the error term for layer $l$, and $\odot$ represents element
 
 ---
 
-
-# **Extending Backpropagation: Convolutions, Skip Connections, Dropout, and More**  
-
-In the previous section, we covered the fundamentals of backpropagation in a simple neural network. However, modern deep learning models incorporate advanced architectures and techniques such as convolutional layers, skip connections, dropout, and batch normalization. Each of these components modifies how gradients propagate through the network.  
-
-In this extended discussion, we will explore how backpropagation works for these advanced structures and provide a basic introduction to **symbolic differentiation in PyTorch**.  
-
----
-
 ## **6. Backpropagation in Convolutional Neural Networks**<a name="conv"></a>
 
 In Convolutional Neural Networks (CNNs), the forward pass involves applying filters (kernels) to input feature maps. The weights of these filters must be updated during backpropagation.  
