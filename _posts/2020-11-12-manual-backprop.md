@@ -19,32 +19,24 @@ Backpropagation is an optimization algorithm used to train neural networks. It e
 
 We consider a simple **single-layer** neural network with one hidden unit:  
 
-\[
-y = f(w \cdot x + b)
-\]
+$$ y = f(w \cdot x + b) $$
 
 where:  
-- \( x \) is the input,  
-- \( w \) is the weight,  
-- \( b \) is the bias,  
-- \( f \) is an activation function,  
-- \( y \) is the output.  
+-  $x$ is the input,  
+-  $w$ is the weight,  
+-  $b$ is the bias,  
+-  $f$ is an activation function,  
+-  $y$ is the output.  
 
-For a given loss function \( L(y, \hat{y}) \), backpropagation computes the gradients:  
+For a given loss function $L(y, \hat{y})$, backpropagation computes the gradients:  
 
-\[
-\frac{\partial L}{\partial w}, \quad \frac{\partial L}{\partial b}
-\]
+$$\frac{\partial L}{\partial w}, \quad \frac{\partial L}{\partial b}$$
 
 using the **chain rule**:  
 
-\[
-\frac{\partial L}{\partial w} = \frac{\partial L}{\partial y} \cdot \frac{\partial y}{\partial w}
-\]
+$$\frac{\partial L}{\partial w} = \frac{\partial L}{\partial y} \cdot \frac{\partial y}{\partial w}$$
 
-\[
-\frac{\partial L}{\partial b} = \frac{\partial L}{\partial y} \cdot \frac{\partial y}{\partial b}
-\]
+$$\frac{\partial L}{\partial b} = \frac{\partial L}{\partial y} \cdot \frac{\partial y}{\partial b}$$
 
 ---
 
@@ -54,21 +46,15 @@ using the **chain rule**:
 
 Consider a **single-layer** neural network with **sigmoid activation**:  
 
-\[
-y = \sigma(z), \quad z = w \cdot x + b
-\]
+$$y = \sigma(z), \quad z = w \cdot x + b$$
 
 where:  
 
-\[
-\sigma(z) = \frac{1}{1 + e^{-z}}
-\]
+$$\sigma(z) = \frac{1}{1 + e^{-z}}$$
 
 Given a **loss function** (e.g., Mean Squared Error for simplicity):  
 
-\[
-L = \frac{1}{2} (y - \hat{y})^2
-\]
+$$L = \frac{1}{2} (y - \hat{y})^2$$
 
 ---
 
@@ -77,41 +63,31 @@ L = \frac{1}{2} (y - \hat{y})^2
 We need:  
 1. **Derivative of loss** w.r.t. output**:  
 
-   \[
-   \frac{\partial L}{\partial y} = (y - \hat{y})
-   \]
+   
+   $$\frac{\partial L}{\partial y} = (y - \hat{y})$$
 
 2. **Derivative of activation (sigmoid function)**:  
 
-   \[
-   \frac{\partial y}{\partial z} = \sigma(z) (1 - \sigma(z))
-   \]
+   $$\frac{\partial y}{\partial z} = \sigma(z) (1 - \sigma(z))$$
 
 3. **Derivatives w.r.t. parameters**:  
 
-   \[
-   \frac{\partial z}{\partial w} = x, \quad \frac{\partial z}{\partial b} = 1
-   \]
+   $$\frac{\partial z}{\partial w} = x, \quad \frac{\partial z}{\partial b} = 1$$
 
 Using the **chain rule**:  
 
-\[
-\frac{\partial L}{\partial w} = \frac{\partial L}{\partial y} \cdot \frac{\partial y}{\partial z} \cdot \frac{\partial z}{\partial w}
-\]
 
-\[
-\frac{\partial L}{\partial b} = \frac{\partial L}{\partial y} \cdot \frac{\partial y}{\partial z} \cdot \frac{\partial z}{\partial b}
-\]
+$$\frac{\partial L}{\partial w} = \frac{\partial L}{\partial y} \cdot \frac{\partial y}{\partial z} \cdot \frac{\partial z}{\partial w}$$
+
+$$\frac{\partial L}{\partial b} = \frac{\partial L}{\partial y} \cdot \frac{\partial y}{\partial z} \cdot \frac{\partial z}{\partial b}$$
 
 Expanding:  
 
-\[
-\frac{\partial L}{\partial w} = (y - \hat{y}) \cdot \sigma(z) (1 - \sigma(z)) \cdot x
-\]
 
-\[
-\frac{\partial L}{\partial b} = (y - \hat{y}) \cdot \sigma(z) (1 - \sigma(z))
-\]
+$$\frac{\partial L}{\partial w} = (y - \hat{y}) \cdot \sigma(z) (1 - \sigma(z)) \cdot x$$
+
+
+$$\frac{\partial L}{\partial b} = (y - \hat{y}) \cdot \sigma(z) (1 - \sigma(z))$$
 
 ---
 
@@ -172,13 +148,13 @@ For deep neural networks, backpropagation extends recursively:
 2. Store intermediate activations.  
 3. Propagate errors backward.  
 
-For each layer \( l \), gradients propagate as:  
+For each layer $l$, gradients propagate as:  
 
-\[
-\delta^l = (\delta^{l+1} W^{l+1}) \odot f'(z^l)
-\]
 
-where \( \delta^l \) is the error term for layer \( l \), and \( \odot \) represents element-wise multiplication.  
+$$\delta^l = (\delta^{l+1} W^{l+1}) \odot f'(z^l)$$
+
+
+where $\delta^l$ is the error term for layer $l$, and $\odot$ represents element-wise multiplication.  
 
 ---
 
