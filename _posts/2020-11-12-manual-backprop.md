@@ -1,4 +1,4 @@
-# **Understanding Manual Gradient Backpropagation in Machine Learning**  
+# **Backpropagation on a Paper Sheet**
 
 ## Table of Contents
 1. [What is Backpropagation?](#backprop)
