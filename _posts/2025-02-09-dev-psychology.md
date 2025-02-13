@@ -150,9 +150,9 @@ When drawing from biology to solve AI challenges, discerning *what to emulate* v
 
 1. **Mandatory Validity at Every Developmental Stage**  
    Humans must remain functional throughout maturation - toddler’s brain can’t crash during language acquisition. AI faces no such limitation: training can involve catastrophic failures as long as the final model converges. This allows radical experimentation, like neural architecture search algorithms that mutate through millions of invalid configurations before discovering optimal designs.
-2. **Metabolic Upkeep**
+2. **Metabolic Upkeep**  
    Biological systems dedicate multiple brain areas and ~20% of energy to baseline functions (e.g., respiration). AI requires no such "overhead" and we should ignore neurological system and biases dedicated to this purpuse. Same goes to all cognitive hyper specializations related to survival in harsh environment while detrimental to general intelligence.
-4. **Pain/fear responses**
+4. **Pain/fear responses**  
    Humans evolved intricate mechanisms to balance exploration exploitation dilemma. "Fight or flight" response, fear as an emotion itself. While they served us well they are quite specific to our limitations. If considered in a highly abstract way they could be useful but we should be careful not to get some "unintended luggage".
 
    
