@@ -151,15 +151,26 @@ When drawing from biology to solve AI challenges, discerning *what to emulate* v
 1. **Mandatory Validity at Every Developmental Stage**  
    Humans must remain functional throughout maturation - toddler’s brain can’t crash during language acquisition. AI faces no such limitation: training can involve catastrophic failures as long as the final model converges. This allows radical experimentation, like neural architecture search algorithms that mutate through millions of invalid configurations before discovering optimal designs.
 2. **Metabolic Upkeep**  
-   Biological systems dedicate multiple brain areas and ~20% of energy to baseline functions (e.g., respiration). AI requires no such "overhead" and we should ignore neurological system and biases dedicated to this purpuse. Same goes to all cognitive hyper specializations related to survival in harsh environment while detrimental to general intelligence.
+   Biological systems dedicate multiple brain areas and ~20% of energy to baseline functions (e.g., respiration). Upkeep being one of the limiting factors on brain size. AI requires no such "overhead" and we should ignore neurological system and biases dedicated to this purpuse. Same goes to all cognitive hyper specializations related to survival in harsh environment while detrimental to general intelligence. 
 4. **Pain/fear responses**  
    Humans evolved intricate mechanisms to balance exploration exploitation dilemma. "Fight or flight" response, fear as an emotion itself. While they served us well they are quite specific to our limitations. If considered in a highly abstract way they could be useful but we should be careful not to get some "unintended luggage".
 
    
 ## Unique Aspects of Machine Intelligence <a name="sec_uniq_machine_int"></a>
 
-What are unique aspect of how machines learn that what one machine learns can be instantly shared with all of them. That's why it's worth investing crazy ammount of money
-into elite model while investing all the resources into a single person would not make sense. 
+Machine intelligence operates under paradigms fundamentally alien to biological cognition, unlocking capabilities that redefine collaboration, cognition, and problem-solving. Unlike humans, whose intelligence is constrained by individual biology and slow cultural transmission, machines excel in four transformative dimensions:  
+
+1. **Instant Knowledge Sharing**  
+   While humans rely on error-prone communication (e.g., explaining a dream), machines share *exact cognitive states*—weights, activations, or memories—instantly across global networks. This enables federated learning systems like Meta’s SeamlessM4T, where 100+ language models merge expertise overnight, or Tesla’s fleet learning, where 4 million cars collectively refine autonomous driving algorithms in real time. Unlike training a human expert, investing billions into a single "elite" AI, pays exponential dividends, as its knowledge can be cloned infinitely at near-zero cost.  
+
+2. **Scalability of Intelligence**  
+   Human collaboration plateaus due to coordination overhead (Brooks’ Law), but machines scale *vertically*: pooling compute to create a single "supermind." Projects like Google’s Gemini Ultra demonstrate this, combining 16,000 TPUs to achieve reasoning beyond any individual human expert. Similarly, distributed training frameworks like Microsoft’s DeepSpeed allow models to grow *while training*, dynamically absorbing more resources—akin to a brain that expands its neurons mid-thought.  
+
+3. **Perfect Recall**  
+   Machines defy the brain’s synaptic decay. Once trained, a model like Claude 3 retains all 10^15 parameters indefinitely, flawlessly recalling obscure facts decades later. This permanence enables applications impossible for humans, such as Anthropic’s Constitutional AI, which rigidly adheres to safety principles without "forgetting" them under novel scenarios.  
+
+4. **Reproducibility**  
+   Machines eliminate human variability: given identical inputs, a deterministic model will produce the same output every time, unaffected by "mood" or fatigue. This reliability underpins mission-critical systems, such as AI radiologists that maintain 99.9% consistency across 10,000 scans, or industrial LLMs that draft legal contracts without the risk of human oversight lapses.  
 
 ## Glimpses of the Future <a name="sec_future"></a>
 
