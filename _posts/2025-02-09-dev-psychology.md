@@ -49,11 +49,100 @@ Examples below were independently rediscovered via AI reserachers while striving
 
 ## Biologicaly Inspiered <a name="sec_biological_inspiration"></a>
 
-A few examples directly inspierd by nature: 
-- neural networks
-- attention
-- curiosity loss
-- LSTM
+The marriage of biology and artificial intelligence has yielded some of deep learning’s most transformative innovations. By studying natural systems—from neurons to curiosity-driven exploration—researchers have solved core challenges in AI design. Below, we dissect four foundational examples, their mathematical underpinnings, and their biological blueprints:
+
+1. Neural Networks: Mimicking Neuronal Firing
+
+**What it is:** Computational models inspired by biological neurons, where interconnected nodes process information through weighted connections.
+
+**Math:** A neuron’s output is computed as 
+
+$$ \sigma(W^Tx+b), $$
+
+where $\sigma$ (e.g., $sigmoid$, $ReLU$) mimics the "all-or-none" firing threshold of biological neurons.
+
+**Nature link:** Dendrites integrate signals (inputs), the soma computes a thresholded response (activation), and axons transmit outputs—directly mirrored in artificial neurons.
+
+**Pseudocode:**
+```python
+def neuron(inputs, weights, bias):  
+    weighted_sum = sum(w * x for w, x in zip(weights, inputs))  
+    return activation(weighted_sum + bias)  
+```
+
+2. Attention Mechanisms: Borrowing Cognitive Focus
+
+**What it is:** Systems that dynamically prioritize input features, inspired by how humans concentrate on salient stimuli (e.g., focusing on a face in a crowd).
+
+**Math:** For input sequence $X$, compute attention scores 
+
+$$ \alpha_{ij}=softmax(\dfrac{Q_{i}K_{j}^T}{\sqrt{d}}), $$
+
+where $Q$, $K$, $V$ are query, key, value matrices.
+
+**Nature link:** The visual cortex’s "spotlight" attention, where neurons amplify relevant signals (e.g., edges) while suppressing noise, directly informs transformer architectures.
+
+**Pseudocode:**
+```python
+def attention(Q, K, V):  
+    scores = Q @ K.T / sqrt(dim)  
+    weights = softmax(scores)  
+    return weights @ V  
+```
+
+3. Curiosity Loss: Emulating Intrinsic Motivation
+
+**What it is:** A reward signal encouraging agents to explore novel states, mirroring how animals investigate unfamiliar environments.
+
+**Math:** Curiosity 
+
+$$ \mathcal{L} = \parallel f(s_t,a_t)−s_{t+1} \parallel ^2, $$
+
+where $f$ is a learned forward model predicting the next state $s_t+1​.$
+
+**Nature link:** Dopamine-driven exploration in mammals—where novelty triggers reward signals—is algorithmically replicated to solve sparse-reward RL tasks.
+
+**Pseudocode:**
+```python
+def curiosity_reward(state, action, next_state):  
+    predicted_next = forward_model(state, action)  
+    intrinsic_reward = mse(predicted_next, next_state)  
+    return intrinsic_reward  
+```
+
+4. LSTMs: Copying Memory Gating
+
+**What it is:** Recurrent networks with gated memory cells, inspired by the brain’s ability to retain/forget information.
+
+**Math:**
+
+$$Forget\ gate:\ f_t = \sigma(W_f x_t + U_f h_{t−1} + b_f), $$
+
+$$Input\ gate:\ i_t = \sigma(W_i x_t + U_i h_{t−1} + b_i), $$
+
+$$Cell\ state:\ C_t = f_t \odot C_{t−1} + i_t \odot \tanh⁡(W_c x_t + U_c h_{t−1} + b_c), $$
+
+where $W$ and $U$ are weight matrixes respectively for input $x$ and hidden state $h$ vectors, while $\odot$ is an element-wise product (Hadamard product).
+
+**Nature link:** Hippocampal memory consolidation—where the brain strengthens or discards synaptic connections—is mirrored in LSTM’s gated state updates.
+
+**Pseudocode:**
+```python
+def lstm_step(x_t, h_prev, C_prev):  
+    forget_gate = sigmoid(W_f @ concat(h_prev, x_t) + b_f)  
+    input_gate = sigmoid(W_i @ concat(h_prev, x_t) + b_i)  
+    cell_update = tanh(W_c @ concat(h_prev, x_t) + b_c)  
+    C_t = forget_gate * C_prev + input_gate * cell_update  
+    output_gate = sigmoid(W_o @ concat(h_prev, x_t) + b_o)  
+    h_t = output_gate * tanh(C_t)  
+    return h_t, C_t  
+```
+
+These biologically inspired designs solve problems that purely statistical approaches struggle with:
+Neural networks handle non-linear patterns via hierarchical processing, akin to cortical layers.
+Attention reduces computational waste by focusing resources, much like the thalamus filters sensory input.
+Curiosity loss overcomes sparse rewards, replicating evolutionary survival strategies.
+LSTMs mitigate vanishing gradients by mimicking synaptic plasticity rules.
 
 ## Trash or Treasure <a name="sec_uniq_human_int"></a>
 
