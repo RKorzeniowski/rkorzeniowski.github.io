@@ -1,9 +1,22 @@
 # Understanding CNNs and Beyond
 
+## Table of Contents
+1. [The Core Idea Behind CNNs](#core_idea) 
+2. [The Mathematics of Convolution](#math_conv) <a name="math_conv"></a>
+3. [Walking Through a Manual Forward Pass](#forward) <a name="forward"></a>
+4. [Pseudocode for the Convolution Forward Pass](#pseduo) <a name="pseduo"></a>
+5. [Adding Non-Linearity: The ReLU Activation](#non-lin) <a name="non-lin"></a>
+6. [From Convolution to Classification](#clf) <a name="clf"></a>
+7. [Pooling and Stride: Reducing Complexity While Preserving Information](#pool) <a name="pool"></a>
+8. [Cognitive Biases and Architectural Assumptions in CNNs](#bias) <a name="bias"></a>
+9. [Qualitative Findings: From Edges to Semantics](#semantic) <a name="semantic"></a>
+10. [The Importance of Data Augmentation](#data_aug) <a name="data_aug"></a>
+11. [Summary](#) <a name="summary"></a>
+
 Convolutional Neural Networks (CNNs) have become a cornerstone in machine learning, especially for tasks like image recognition and computer vision. Rather than describing every modern variant, this post focuses on the core ideas behind CNNs - specifically, how and why they work from a mathematical perspective and provides you with the tools to manually compute a forward pass.
 Later on we also discuss why these elements are so computationally efficient while still achieving high performance, the cognitive-inspired assumptions behind CNN designs, the qualitative evolution of learned features, and the importance of data augmentation for robust performance.
 
-## 1. The Core Idea Behind CNNs
+## 1. The Core Idea Behind CNNs <a name="core_idea"></a>
 
 At their heart, CNNs use two fundamental operations:
 - **Convolution:** A local, weight‑sharing operation that extracts features by sliding small filters (kernels) over the input.
@@ -11,7 +24,7 @@ At their heart, CNNs use two fundamental operations:
 
 In this post, we will focus on the convolutional layer, followed by a non-linear activation (typically ReLU), and briefly touch on how the output may be used in a fully connected (dense) layer for classification.
 
-## 2. The Mathematics of Convolution
+## 2. The Mathematics of Convolution<a name="math_conv"></a>
 
 ### 2.1. Convolution Operation
 
@@ -33,7 +46,7 @@ $$
 
 For example, if $H = W = 5$, $f = 3$, $P = 0$, and $S = 1$, the output will have dimensions $3 \times 3$.
 
-## 3. Walking Through a Manual Forward Pass
+## 3. Walking Through a Manual Forward Pass<a name="forward"></a>
 
 Let’s break down the forward pass for a single convolutional layer step-by-step. Assume:
 - **Input:** A $5 \times 5$ grayscale image (i.e. $D = 1$).
@@ -61,7 +74,7 @@ $$
 
 Repeat this process for each valid (i,j) position in the image.
 
-## 4. Pseudocode for the Convolution Forward Pass
+## 4. Pseudocode for the Convolution Forward Pass<a name="pseduo"></a>
 
 The following pseudocode summarizes the forward pass for a batch of inputs. (Here, we assume the input $A_{\text{prev}}$ has shape $(m, H, W, D)$, and the filter weights $W$ have shape $(f, f, D, n_C)$ for $n_C$ filters.)
 
@@ -115,7 +128,7 @@ def conv_forward(A_prev, W, b, stride, pad):
 
 This pseudo-code mirrors the process we manually described: for every position in the input, extract a slice, perform a dot product with the filter, add the bias, and store the result in $Z$.
 
-## 5. Adding Non-Linearity: The ReLU Activation
+## 5. Adding Non-Linearity: The ReLU Activation<a name="non-lin"></a>
 
 After the convolution step, an activation function (most often ReLU) is applied elementwise:
 
@@ -129,7 +142,7 @@ $$
 A = \text{ReLU}(Z)
 $$
 
-## 6. From Convolution to Classification
+## 6. From Convolution to Classification<a name="clf"></a>
 
 For a complete CNN, the activation maps from several convolutional (and pooling) layers are eventually flattened into a vector. This vector is then fed into a fully connected layer (or layers), where a final classification (or regression) is computed:
 
@@ -137,7 +150,7 @@ $$
 y = \text{softmax}(W_{\text{fc}} \cdot \text{flatten}(A) + b_{\text{fc}})
 $$
 
-## 7. Pooling and Stride: Reducing Complexity While Preserving Information
+## 7. Pooling and Stride: Reducing Complexity While Preserving Information<a name="pool"></a>
 
 ### 7.1. The Role of Pooling
 
@@ -156,7 +169,7 @@ The stride determines how far the pooling window (or convolution filter) moves a
 
 Together, pooling and stride significantly lower the amount of computation and memory usage without sacrificing the network’s ability to capture critical information.
 
-## 8. Cognitive Biases and Architectural Assumptions in CNNs
+## 8. Cognitive Biases and Architectural Assumptions in CNNs<a name="bias"></a>
 
 While “cognitive biases” typically refer to human tendencies in decision making, CNNs are built upon analogous architectural assumptions inspired by the human visual system:
 
@@ -166,7 +179,7 @@ While “cognitive biases” typically refer to human tendencies in decision mak
 
 These design principles are computationally efficient because they drastically reduce the number of parameters (by reusing filters and limiting connections) and are effective because they align with how natural visual systems process information.
 
-## 9. Qualitative Findings: From Edges to Semantics
+## 9. Qualitative Findings: From Edges to Semantics<a name="semantic"></a>
 
 Numerous studies and visualizations have revealed that CNNs tend to learn a hierarchy of features:
 - **Bottom Layers:** Learn low-level features such as edges, corners, and textures. These features are simple but fundamental.
@@ -175,7 +188,7 @@ Numerous studies and visualizations have revealed that CNNs tend to learn a hier
 
 This progression mirrors our cognitive perception from raw pixel intensities to meaningful object recognition and is one of the reasons why CNNs have demonstrated such impressive performance in tasks like image classification and object detection.
 
-## 10. The Importance of Data Augmentation
+## 10. The Importance of Data Augmentation<a name="data_aug"></a>
 
 Even with architectures that embed strong priors, CNNs often require vast amounts of data to generalize well. Data augmentation is a strategy to artificially expand the training dataset by applying transformations to the input images. This has several benefits:
 
@@ -197,7 +210,7 @@ Among the numerous augmentation strategies, two have emerged as particularly eff
 
 
 
-## 11. Summary
+## 11. Summary<a name="summary"></a>
 
 In this discussion, we covered several key concepts that explain the efficiency and effectiveness of CNNs:
 - **Convolution Operation:** Slide a filter over an input, compute a dot product at each location, and add a bias.
