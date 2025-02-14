@@ -454,4 +454,4 @@ We've covered advanced backpropagation techniques for:
 - Dropout regularization  
 - Batch normalization  
 
-By understanding how gradients propagate in these advanced structures, you can debug and optimize deep learning models more effectively. If you are interested in more [here you can find my full implementation of multi layer dense network in numpy](https://gitlab.com/pw_neural_nets/numpy_network) that archives 97.87% accuracy on MNIST test set. Next step would be to try implementing a small ResNet with manual backpropagation!
+By understanding how gradients propagate in these advanced structures, you can debug and optimize deep learning models more effectively. If you are interested in more [here you can find my full implementation of multi layer dense network in numpy](https://gitlab.com/pw_neural_nets/numpy_network) that archives 97.87% accuracy on MNIST test set. Next step would be to try implementing a small ResNet with manual backpropagation (if you are having trouble you can check [my implementation of backpropagation for convolutional layers](https://gitlab.com/pw_neural_nets/numpy_gan))!
