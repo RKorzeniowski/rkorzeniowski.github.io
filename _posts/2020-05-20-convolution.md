@@ -2,16 +2,16 @@
 
 ## Table of Contents
 1. [The Core Idea Behind CNNs](#core_idea) 
-2. [The Mathematics of Convolution](#math_conv) <a name="math_conv"></a>
-3. [Walking Through a Manual Forward Pass](#forward) <a name="forward"></a>
-4. [Pseudocode for the Convolution Forward Pass](#pseduo) <a name="pseduo"></a>
-5. [Adding Non-Linearity: The ReLU Activation](#non-lin) <a name="non-lin"></a>
-6. [From Convolution to Classification](#clf) <a name="clf"></a>
-7. [Pooling and Stride: Reducing Complexity While Preserving Information](#pool) <a name="pool"></a>
-8. [Cognitive Biases and Architectural Assumptions in CNNs](#bias) <a name="bias"></a>
-9. [Qualitative Findings: From Edges to Semantics](#semantic) <a name="semantic"></a>
-10. [The Importance of Data Augmentation](#data_aug) <a name="data_aug"></a>
-11. [Summary](#) <a name="summary"></a>
+2. [The Mathematics of Convolution](#math_conv)
+3. [Walking Through a Manual Forward Pass](#forward)
+4. [Pseudocode for the Convolution Forward Pass](#pseduo)
+5. [Adding Non-Linearity: The ReLU Activation](#non-lin)
+6. [From Convolution to Classification](#clf)
+7. [Pooling and Stride: Reducing Complexity While Preserving Information](#pool)
+8. [Cognitive Biases and Architectural Assumptions in CNNs](#bias)
+9. [Qualitative Findings: From Edges to Semantics](#semantic)
+10. [The Importance of Data Augmentation](#data_aug)
+11. [Summary](#summary)
 
 Convolutional Neural Networks (CNNs) have become a cornerstone in machine learning, especially for tasks like image recognition and computer vision. Rather than describing every modern variant, this post focuses on the core ideas behind CNNs - specifically, how and why they work from a mathematical perspective and provides you with the tools to manually compute a forward pass.
 Later on we also discuss why these elements are so computationally efficient while still achieving high performance, the cognitive-inspired assumptions behind CNN designs, the qualitative evolution of learned features, and the importance of data augmentation for robust performance.
