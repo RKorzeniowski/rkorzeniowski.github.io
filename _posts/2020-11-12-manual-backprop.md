@@ -12,7 +12,7 @@
 9. [Backpropagation Through Batch Normalization](#batch_norm)
 10. [Under the Hood: Symbolic Differentiation in PyTorch](#symbolic)
 
-Backpropagation is the backbone of modern deep learning. While frameworks like TensorFlow and PyTorch handle it automatically, understanding how gradients propagate manually is essential for building an intuition for deep learning. In this blog, we'll break down gradient backpropagation with math and implement it using pseudocode.  
+Backpropagation is the backbone of modern deep learning. While frameworks like TensorFlow and PyTorch handle it automatically, understanding how gradients propagate manually is essential for building an intuition for deep learning. In this blog, we'll break down gradient backpropagation with math, implement it using pseudocode and share an actual implementation in numpy that archives 97.87% accuracy on MNIST test set.
 
 ---
 
@@ -454,6 +454,4 @@ We've covered advanced backpropagation techniques for:
 - Dropout regularization  
 - Batch normalization  
 
-By understanding how gradients propagate in these advanced structures, you can debug and optimize deep learning models more effectively.
-
-If you’re feeling ambitious, try implementing a ResNet with manual backpropagation!
+By understanding how gradients propagate in these advanced structures, you can debug and optimize deep learning models more effectively. If you are interested in more [here you can find my full implementation of multi layer dense network in numpy](https://gitlab.com/pw_neural_nets/numpy_network) that archives 97.87% accuracy on MNIST test set. Next step would be to try implementing a small ResNet with manual backpropagation!
