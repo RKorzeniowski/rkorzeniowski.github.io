@@ -199,11 +199,7 @@ Even with architectures that embed strong priors, CNNs often require vast amount
 
 Among the numerous augmentation strategies, two have emerged as particularly effective:
 - **Mixup:**  
-  Mixup involves taking convex combinations of pairs of training examples and their labels. In other words, if you have two images $x_i$ and $x_j$ with labels $y_i$ and $y_j$, mixup creates a new training sample:
-  $$
-  \tilde{x} = \lambda x_i + (1 - \lambda) x_j, \quad \tilde{y} = \lambda y_i + (1 - \lambda) y_j,
-  $$
-  where $\lambda \in [0,1]$ is sampled from a beta distribution. This approach encourages the model to behave linearly in-between training examples, smoothing decision boundaries and often leading to better generalization.
+  Mixup involves taking convex combinations of pairs of training examples and their labels. In other words, if you have two images $x_i$ and $x_j$ with labels $y_i$ and $y_j$, mixup creates a new training sample: $\tilde{x} = \lambda x_i + (1 - \lambda) x_j, \quad \tilde{y} = \lambda y_i + (1 - \lambda) y_j,$ where $\lambda \in [0,1]$ is sampled from a beta distribution. This approach encourages the model to behave linearly in-between training examples, smoothing decision boundaries and often leading to better generalization.
 
 - **Cutout:**  
   Cutout randomly masks out square regions of the input during training. By occluding parts of the image, the network is forced to focus on the remaining features, making it more robust to partial occlusions and background noise. Cutout effectively acts as a form of regularization and has been shown to significantly improve performance on various image recognition tasks.
