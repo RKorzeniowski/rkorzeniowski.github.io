@@ -171,4 +171,4 @@ In this post we have:
 
 As the field evolves, robust deep learning remains an active area of research with many open questions—especially regarding the trade-offs between accuracy, computational cost, and security. Future research may yield new training algorithms or architectures that can both achieve high accuracy and withstand adversarial manipulations without sacrificing performance.
 
-By understanding these mathematical foundations and the corresponding defense strategies, researchers and practitioners can better design systems that are not only accurate on standard benchmarks but also resilient in the face of adversarial challenges.
+By understanding these mathematical foundations and the corresponding defense strategies, researchers and practitioners can better design systems that are not only accurate on standard benchmarks but also resilient in the face of adversarial challenges. If you are interested in how it works in practice here something fun - [my full implementation of an adversarially robust model trained as GAN](https://gitlab.com/korzeniowski.renard/magisterka)
