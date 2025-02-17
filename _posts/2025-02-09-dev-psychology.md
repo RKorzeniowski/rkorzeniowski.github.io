@@ -196,7 +196,3 @@ Developmental psychology offers a treasure trove of principles that could revolu
    Children learn not just individually but through *group dynamics*, sharing partial knowledge to solve collective puzzles. AI could replicate this via **decentralized multi-agent systems**, where agents with specialized skills (e.g., vision, language) collaborate under partial observability. The *SocialAI School*’s multi-agent experiments reveal how shared cultural norms emerge from decentralized interactions, akin to children adopting classroom rituals. Similarly, **hidden information games**—where agents must infer peers’ unobserved states—could teach AI to model uncertainty and negotiate, much like toddlers bargaining over toys.  
 
 By reverse-engineering developmental milestones—from intermodal integration to scaffolded curricula—AI can transcend brute-force scaling. For instance, *feedback loops* that adjust task difficulty in real time (e.g., increasing image resolution as a vision model improves) mimic intuitive children self-pacing. Meanwhile, studying human cognitive biases offers diagnostic tools to align AI with robust, human-like reasoning. The future lies not in copying biology but in distilling its *optimization blueprints*: efficiency, adaptability, and social grounding.
-
-## References
-- [1] XYZ
-
