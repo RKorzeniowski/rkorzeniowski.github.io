@@ -1,1 +1,47 @@
-# Agents
+# Why are Agents so hot?
+
+Agents are the hot topic of recent days? Why is that? The main use case for AI so far (at least till 2024 before chatbots 
+got agentified with tools) was this type of assistant that helps you solve simple problems you throw at it. 
+It is very knowledgeable but as soon as you ask it to do something that requires a bit of common sense and "googling" 
+it fails miserably. Either making things up or providing inaccurate information. Let's take as an example trip planning
+
+When asked to come up with itinerary with estimated budget for trip in a week we can expect AI will give us made up 
+flights with price estimate unrelated to current price (and let's not dream about it finding best deal for us), 
+types of attractions a list of most typical activities not necessarily available at the time of our trip and so on.
+If we "digest it a little bit" and ask for specific season it will usually do a little better but still might recommend
+things that were closed. I will later talk about how agentic approach addresses some of these issues.
+
+More recently companies stated a goal of automating junior developers. Copilot etc. 
+There was significant progress in this field. From AI having a hard time writing doc strings, 
+through tests being written just based on test  docstring written by developer and interfaces and existing codebase, 
+to most recently impressive improvements to existing algorithms and coming up with new ones (EvolveAlpha). 
+Last one being more about blend of evolutionary algorithms and ? but agentic concept that happened along the way and 
+how they impacted the dynamic are still interesting.
+
+Finally the most recent document released by Google proposing the concept of an independent "agentic contractor" 
+and explaining how multi agent fits into the picture.
+
+All of the above developments motivated me to refresh and extend my vocabulary and understanding. 
+So in this post I'll be going over 1) what are agents and most basic concepts related to them 2) how do they differ 
+from standard chatbots 3) why multi agent approach and defining contracts is such a big deal 4) go over concrete example 
+using CrewAI to explain how above mentioned concepts play together
+
+## How agent differs from chatbot?
+Well, this is a bit of an ill posed question but I think this is something that can be easily confused. 
+Chatbots can be agentic. Chatbot is w use case while agent is solution paradigma. So there are agentic and 
+non-agentic chatbots. The agentic systems are characterized by an ability to interact with the environment using tools.
+
+Tool can be anything. From simple things like calculator (yes, they come in handy even for LLMs) 
+to quite an advance like a web browser.
+
+They allow for dynamic input that is not easy to "remember" and is usually not available in the input prompt. 
+You can probably already see how having a web browser that will  return most up to date price for flight ticket 
+for any date requested makes life of an LLM much easier
+
+The problem is that even with amazing tools our LLM will still struggle with coming up with the idea to ask tool for this 
+information (idea of Chain of thought will help us here but let's ignore it for now) in the first place and with an 
+abundance of information provided to it. This is where the concept of multiple agents comes in with decomposition and 
+orchestration
+
+(agent consists of brain -> LLM that gives it a way to think, tools that "brain" can use, and orchestration if we talk about
+more than single agent)
