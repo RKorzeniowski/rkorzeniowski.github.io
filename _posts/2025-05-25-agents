@@ -141,6 +141,79 @@ orchestration
     * agent utilization
 
 
+
+Example Output of CrewAI on Example
+* had to use ChatGPT because open source chatbots (even LLama 3 100 mil (check what it was exactly in size)) failed due to missunderstanding 
+output of website scrapping tools and failing to correct the error. Something that could be improve by adding validation LLM to the workflow but I was just playing
+to get a bit of hand-on experience with this type of open source multi agent orchestration experience. Worked both with ChatGPT 4o and distilled versions of it. 
+* biggest pain point for me if I were to develop an AI application would be limited number of predefined tools e.g. scrapping. I was using recommended default products
+that had free trial period but for someone doing it for longer period of time this might become major cost especially as number of users grows. Of course you can write
+these tools yourself but making them work really well and handle all expections is a lot of work. I would say you are better of paying and focusing on improving your
+core product. I think as this type of development become more mature higher competition will improve the situation. 
+
+input
+```
+** Welcome to Trip Planner Crew
+-------------------------------
+
+From where will you be traveling from?
+Warsaw
+
+What are the cities options you are interested in visiting?
+Tokyo
+
+What is the date range you are interested in traveling?
+01.01.2025-01.10.2025     
+
+What are some of yo
+```
+
+output I got
+```
+* 7-Day Tokyo Itinerary (January 1 - January 10, 2025)
+
+** Overview
+Tokyo, a vibrant metropolis, blends traditional culture with modernity, offering countless exciting places for food enthusiasts and anime lovers alike. This itinerary ensures an unforgettable experience with carefully selected activities, dining, and accommodation tailored to your interests.
+
+*** Weather Forecast
+- **Average Temperature**: 2°C to 10°C (36°F to 50°F)
+- **Conditions**: Cool and dry, ideal for outdoor exploration and indoor dining.
+
+---
+
+** Day 1: Arrival in Tokyo (January 1)
+- **Accommodation**: Shinjuku Granbell Hotel ($150 per night)
+  - Reason: Centrally located, great amenities, and access to Shinjuku’s nightlife.
+*** Schedule:
+- **Arrive at Narita/Haneda Airport**
+- **Check-in & Freshen Up**
+- **Dinner**: Experience New Year's Osechi-ryori at **Sukiyabashi Jiro** (approx. $500) 🌟 - Known for its exceptional sushi.
+- **Relax**: Explore the Shinjuku area and visit Omoide Yokocho for drinks.
+
+---
+...
+
+
+** Packing Suggestions
+- Layered clothing (thermal wear, sweaters, can be chilly)
+- Comfortable walking shoes
+- A medium-sized umbrella (January can be dry but still wise to have)
+- Personal items such as toiletries and sufficient cash
+
+---
+
+** Budget Breakdown
+- **Flights**: Approx. $600-$1,200 (round trip)
+- **Accommodation**: $1,050 (7 nights x $150)
+- **Meals**: $25 daily (approx. $175 total)
+- **Transportation**: $60 total for metro/commutes.
+- **Attractions**: Approx. $100 total for entry fees.
+- **Total Estimated Budget**: $2,185 - $2,725
+
+Enjoy your fantastic journey through Tokyo! Indulge in the food, soak in the anime culture, and immerse yourself in the rich history of Japan.
+```
+
+
 My Thoughts
 This will change the way people interact with unknown. No longer googling simple terms in search engines but ask agent to
 understand complex situation and provide relevant response. There is an interesting point to be made about how changing informaiton environment impacts today's society. 
