@@ -45,3 +45,151 @@ orchestration
 
 (agent consists of brain -> LLM that gives it a way to think, tools that "brain" can use, and orchestration if we talk about
 more than single agent)
+
+
+Building Blocks of an Agent
+- ML model e.g. LLM
+- - Central decision making (general, multimodal, finetuned)
+  - Instruction based reasoning
+  - Logical Framework
+- Tools
+- - bridge internal/external capabiliteis
+  - faciliate interactions with data/services
+  - access/process real world informaton
+  - types: extension, functions, data stores
+- Orchestration Layer
+- - cyclical process
+  - assimilate information
+  - internal reasoning
+  - leverage reasoning for action/decision
+  - maintain memory, state, planning
+  - uses prompt eng framework
+  - reasoning like ReAct, Chain-of-Thought (CoT), Tree-of-Thought (ToT)
+
+Multi-Agent Systems
+- team of experts, each specilizes, has unique role/context
+- independent entities e.g. different LLMs
+- communicate/collaborate/coordinate for common goal
+
+Advantages over single agent
+
+
+
+* definition of an agent
+	* achieve specific objectives
+	* perceive environment
+	* act using tools
+	* apply logic and reasoning to external information
+	* autonomous operation
+
+
+* building blocks of an agent
+  * ML model e.g. LLM
+  * Central decision making (general, multimodal, finetuned)
+    * Instruction based reasoning
+    * Logical Framework
+  
+  * orchestration layers
+  	* cyclical process
+  	* assimilate information
+  	* internal reasoning
+  	* reasoning for action/decision
+  	* maintain memory/state planning
+  	* use prompt eng frameworks 
+  	* reasoning techniques
+  	  * CoT - single paths of reasoning
+  	  * ToT - explores multiple paths of reasoning
+  	  * ReAct - paradigma combining verbal reasoning with acting
+    
+  * agents ops
+  	* tool management 
+  	* agent brain prompt (goal, profile, instrucitons)
+  	* task decomposition
+  
+* multi-agent aspect
+  * specialized agents collaboration
+      * team of experts - break down problems into distinct tasks
+      * each has unique role/context by function - dynamic interactions, structured reasoning, decentralized problem solving (modularity, collaboration, hierarchy)
+      * independent entities - adaptive/efficient, you don't need to run all agents for every task
+      * communication/collaboration toward common goal - explainable due logs of agents communication, beyond prompt-based interaction (? what does it mean exactly)
+  * advantages over single agent
+      * better acc/fault tolerance (cross checking/other agents fixes)
+      * efficiency/scalability (parallel work/add more agents)
+      * better handling of complex tasks (decomposition)
+      * reduced hall/bias (multi perspective)
+  * components
+      * cognitive functionality - self-correction, user intent refinement, planning, ReAct, CoT
+      * tool integration - dynamic tool registers, Tool RAG
+      * flow/routing - connections, neighbor discovery, communication, delegation, hand-off, agent as tool
+      * feedback loops/RL - continuous learning, adapting decision-making
+      * agent/tool registry - mesh, discover, register, administer, select, utilize
+
+  * agentic RAG
+      * improve retrieval by: decomposed query, dynamically select best source, validation/error correction (evaluator agents check for hall/contradictions), context-aware query expansion, 
+      * RAGs need search engines
+  * enterprise
+      * types
+          * assistant - interacts with user. executes tasks
+          * contractor - fulfill defined outcomes
+          * manager of agents
+      * reaching contractors
+          * need for standardized contracts between requester and agents
+          * advantages
+              * defines outcomes precisely (validate, iterate)
+              * negotiate/classify task (avoiding ambiguity, fill out gaps)
+              * define rules for subcontracts
+	* agent types
+	    * planner agent - breaks down high level objectives into subtasks
+	    * retriver agent - knowledge acquisition from dynamic sources
+	    * execution agent - performs computations, generates responses, interacts with APIs
+	    * evaluator agent - make sure responses are valid, consistent, coherent, relevant
+
+* evaluations
+  * agent success metrics
+      * goal completion rate
+      * critical task/interaction completion
+      * attempts success rate
+      * latency
+  * components
+      * accessing agent capabilities
+          * BFCL, τ-bench (tool calling), PlanBench (planning/reasoning), AgentBench (end-to-end), DABStep (Data Analyst)
+          * LLM/components metrics
+              * conversational workflow metrics
+      * trajectory and tool use
+          * expected vs actual trajectory - tool choice, strategies, efficiency (requires reference trajectory)
+              * exact math
+              * any/in-order match
+              * precision/recall
+      * evaluating final response
+  * way to go about it
+      * automatic metrics
+      * subjective
+      * LLM as a judge
+  * continual improvement of evaluation framework is essential
+  * multiagent evals:
+    * cooperation/coordination
+    * planning task and task assignment
+    * agent utilization
+
+
+My Thoughts
+This will change the way people interact with unknown. No longer googling simple terms in search engines but ask agent to
+understand complex situation and provide relevant response. There is an interesting point to be made about how changing informaiton environment impacts today's society. 
+Types of mental tasks we peform are belived to improve our capabilities. There is a long lasting theory (link book) that tools that offload our brain from performing these tasks cause
+us to lose skills and make us stupid. Before internet main hardship was obtaining information. Contributing to persistance and creativity. Although when the internet age got into full swing
+obtaining information was no longer a problem but reliability of this information became an issue. Suddenly next generations are faced with new types of challanges.
+How to quickly filter and verify. This looks like a great motivation to exercise critical thinking skills and improve with how we decompose complex tasks
+into simple queries to which web can provide relevant information. In the age of agentic AI that can digest complex tasks skills like task decompositon will be no longer
+needed. Similarly low-level coding that was pushing humans to perform cognitively demanding task of "thinking like a machine" is no longer as common. Currently 
+conventional coding might meet the same fate of become a specialist skill. What's interesting to me is not predicting how developments like vibe coding will fail but how 
+its potential success can influence this skill evolution dynamic. Getting this power of generative AI seems like something that in positive scenario could empower
+developers to build complete more emersive than before experiences without it being resource intensive. Creativity and high level thinking skills of artists even with limited level of technical skills
+could become very precious and a huge driver for innovation. 
+
+   
+* future
+    * long-term memory
+    * agent communication protocols
+    * from agents to contractors
+
+
