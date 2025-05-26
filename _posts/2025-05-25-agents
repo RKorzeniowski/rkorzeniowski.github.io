@@ -43,37 +43,6 @@ information (idea of Chain of thought will help us here but let's ignore it for 
 abundance of information provided to it. This is where the concept of multiple agents comes in with decomposition and 
 orchestration
 
-(agent consists of brain -> LLM that gives it a way to think, tools that "brain" can use, and orchestration if we talk about
-more than single agent)
-
-
-Building Blocks of an Agent
-- ML model e.g. LLM
-- - Central decision making (general, multimodal, finetuned)
-  - Instruction based reasoning
-  - Logical Framework
-- Tools
-- - bridge internal/external capabiliteis
-  - faciliate interactions with data/services
-  - access/process real world informaton
-  - types: extension, functions, data stores
-- Orchestration Layer
-- - cyclical process
-  - assimilate information
-  - internal reasoning
-  - leverage reasoning for action/decision
-  - maintain memory, state, planning
-  - uses prompt eng framework
-  - reasoning like ReAct, Chain-of-Thought (CoT), Tree-of-Thought (ToT)
-
-Multi-Agent Systems
-- team of experts, each specilizes, has unique role/context
-- independent entities e.g. different LLMs
-- communicate/collaborate/coordinate for common goal
-
-Advantages over single agent
-
-
 
 * definition of an agent
 	* achieve specific objectives
