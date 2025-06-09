@@ -14,7 +14,7 @@ things that were closed. I will later talk about how agentic approach addresses 
 More recently companies stated a goal of automating junior developers. Copilot etc. 
 There was significant progress in this field. From AI having a hard time writing doc strings, 
 through tests being written just based on test  docstring written by developer and interfaces and existing codebase, 
-to most recently impressive improvements to existing algorithms and coming up with new ones (EvolveAlpha). 
+to most recently impressive improvements to existing algorithms and coming up with new ones EvolveAlpha [1](https://deepmind.google/discover/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/). 
 Last one being more about blend of evolutionary algorithms and ? but agentic concept that happened along the way and 
 how they impacted the dynamic are still interesting.
 
@@ -217,7 +217,8 @@ Enjoy your fantastic journey through Tokyo! Indulge in the food, soak in the ani
 My Thoughts
 This will change the way people interact with unknown. No longer googling simple terms in search engines but ask agent to
 understand complex situation and provide relevant response. There is an interesting point to be made about how changing informaiton environment impacts today's society. 
-Types of mental tasks we peform are belived to improve our capabilities. There is a long lasting theory (link book) that tools that offload our brain from performing these tasks cause
+Types of mental tasks we peform are belived to improve our capabilities. There is a theory raise in [Amusing Ourselves to Death: Public Discourse in the Age of Show Business](https://www.amazon.com/Amusing-Ourselves-Death-Discourse-Business/dp/014303653X)
+that tools that offload our brain from performing these tasks cause
 us to lose skills and make us stupid. Before internet main hardship was obtaining information. Contributing to persistance and creativity. Although when the internet age got into full swing
 obtaining information was no longer a problem but reliability of this information became an issue. Suddenly next generations are faced with new types of challanges.
 How to quickly filter and verify. This looks like a great motivation to exercise critical thinking skills and improve with how we decompose complex tasks
@@ -235,3 +236,13 @@ could become very precious and a huge driver for innovation.
     * from agents to contractors
 
 
+AI company https://3dvf.com/en/scientists-built-a-fake-company-staffed-entirely-by-ai-heres-why-it-failed-spectacularly/
+
+AI hard time:
+- implicit understanding. When told to save results in a file with a “.docx” extension, the AI agents couldn’t make the logical leap that this meant creating a Microsoft Word document.
+- Social skills - collaboration
+- Web navigation, particularly dealing with pop-ups and complex user interfaces
+
+Almost human-like in the AI’s behavior: when faced with difficult tasks, the agents sometimes took shortcuts and then reported successful completion
+
+AI integration in the workplace will require careful task selection, realistic expectations, and probably a good deal of human oversight.
