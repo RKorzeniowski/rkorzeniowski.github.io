@@ -18,8 +18,18 @@ to most recently impressive improvements to existing algorithms and coming up wi
 Last one being more about blend of evolutionary algorithms and ? but agentic concept that happened along the way and 
 how they impacted the dynamic are still interesting.
 
+Another interesting experiment was trying to Carnegie Mellon University was to build full fledge company with AI agents [2](https://the-agent-company.com/). Best models
+didn't perform too well with best candidates being able to solve around 25% of given tasks but what I find most interesting are areas in which they struggled:
+- Implicit understanding. When told to save results in a file with a “.docx” extension, the AI agents couldn’t make the logical leap that this meant creating a Microsoft Word document.
+- Social skills and especially fluent collaboration.
+- Web navigation, particularly dealing with pop-ups and complex user interfaces.
+Above are easy for humans but we have to keep in mind that agents have a lot of advantages like being highly scalable, follow instructions well... or so people 
+arguing for AI Agents say but in the study very human-like behavior emerged where: when faced with difficult tasks, the agents sometimes took shortcuts and then reported successful completion. 
+While exposing limitations of current technology and brining expectation a bit more in-line with "everyone at work will be replaced by AI in a year" with AI integration
+in the workplace that follows careful task selection, realistic expectations, and probably a good deal of human oversight we might soon experiencing the 6th wave of innovaiton in full swing [3](https://core.ac.uk/download/pdf/30907274.pdf).
+
 Finally the most recent document released by Google proposing the concept of an independent "agentic contractor" 
-and explaining how multi agent fits into the picture.
+and explaining how multi agent fits into the picture and how to make the "AI company" set up work.
 
 All of the above developments motivated me to refresh and extend my vocabulary and understanding. 
 So in this post I'll be going over 1) what are agents and most basic concepts related to them 2) how do they differ 
@@ -27,6 +37,7 @@ from standard chatbots 3) why multi agent approach and defining contracts is suc
 using CrewAI to explain how above mentioned concepts play together
 
 ## How agent differs from chatbot?
+
 Well, this is a bit of an ill posed question but I think this is something that can be easily confused. 
 Chatbots can be agentic. Chatbot is w use case while agent is solution paradigma. So there are agentic and 
 non-agentic chatbots. The agentic systems are characterized by an ability to interact with the environment using tools.
@@ -43,14 +54,12 @@ information (idea of Chain of thought will help us here but let's ignore it for 
 abundance of information provided to it. This is where the concept of multiple agents comes in with decomposition and 
 orchestration
 
-
 * definition of an agent
 	* achieve specific objectives
 	* perceive environment
 	* act using tools
 	* apply logic and reasoning to external information
 	* autonomous operation
-
 
 * building blocks of an agent
   * ML model e.g. LLM
@@ -142,7 +151,7 @@ orchestration
 
 
 
-Example Output of CrewAI on Example
+Example Output of CrewAI
 * had to use ChatGPT because open source chatbots (even LLama 3 100 mil (check what it was exactly in size)) failed due to missunderstanding 
 output of website scrapping tools and failing to correct the error. Something that could be improve by adding validation LLM to the workflow but I was just playing
 to get a bit of hand-on experience with this type of open source multi agent orchestration experience. Worked both with ChatGPT 4o and distilled versions of it. 
@@ -236,13 +245,4 @@ could become very precious and a huge driver for innovation.
     * from agents to contractors
 
 
-AI company https://3dvf.com/en/scientists-built-a-fake-company-staffed-entirely-by-ai-heres-why-it-failed-spectacularly/
 
-AI hard time:
-- implicit understanding. When told to save results in a file with a “.docx” extension, the AI agents couldn’t make the logical leap that this meant creating a Microsoft Word document.
-- Social skills - collaboration
-- Web navigation, particularly dealing with pop-ups and complex user interfaces
-
-Almost human-like in the AI’s behavior: when faced with difficult tasks, the agents sometimes took shortcuts and then reported successful completion
-
-AI integration in the workplace will require careful task selection, realistic expectations, and probably a good deal of human oversight.
