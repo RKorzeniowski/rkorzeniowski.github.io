@@ -54,113 +54,168 @@ information (idea of Chain of thought will help us here but let's ignore it for 
 abundance of information provided to it. This is where the concept of multiple agents comes in with decomposition and 
 orchestration
 
-* definition of an agent
-	* achieve specific objectives
-	* perceive environment
-	* act using tools
-	* apply logic and reasoning to external information
-	* autonomous operation
+* **Definition of an agent**
 
-* building blocks of an agent
-  * ML model e.g. LLM
-  * Central decision making (general, multimodal, finetuned)
-    * Instruction based reasoning
-    * Logical Framework
-  
-  * orchestration layers
-  	* cyclical process
-  	* assimilate information
-  	* internal reasoning
-  	* reasoning for action/decision
-  	* maintain memory/state planning
-  	* use prompt eng frameworks 
-  	* reasoning techniques
-  	  * CoT - single paths of reasoning
-  	  * ToT - explores multiple paths of reasoning
-  	  * ReAct - paradigma combining verbal reasoning with acting
-    
-  * agents ops
-  	* tool management 
-  	* agent brain prompt (goal, profile, instrucitons)
-  	* task decomposition
-  
-* multi-agent aspect
-  * specialized agents collaboration
-      * team of experts - break down problems into distinct tasks
-      * each has unique role/context by function - dynamic interactions, structured reasoning, decentralized problem solving (modularity, collaboration, hierarchy)
-      * independent entities - adaptive/efficient, you don't need to run all agents for every task
-      * communication/collaboration toward common goal - explainable due logs of agents communication, beyond prompt-based interaction (? what does it mean exactly)
-  * advantages over single agent
-      * better acc/fault tolerance (cross checking/other agents fixes)
-      * efficiency/scalability (parallel work/add more agents)
-      * better handling of complex tasks (decomposition)
-      * reduced hall/bias (multi perspective)
-  * components
-      * cognitive functionality - self-correction, user intent refinement, planning, ReAct, CoT
-      * tool integration - dynamic tool registers, Tool RAG
-      * flow/routing - connections, neighbor discovery, communication, delegation, hand-off, agent as tool
-      * feedback loops/RL - continuous learning, adapting decision-making
-      * agent/tool registry - mesh, discover, register, administer, select, utilize
+  * Formalized as a Markov Decision Process (MDP) tuple $(\mathcal{S}, \mathcal{A}, T, R, \gamma)$, where $\mathcal{S}$ is the set of environment states, $\mathcal{A}$ the action space (including tool invocations), $T(s' \mid s,a)$ the transition kernel, $R(s,a)$ the reward function, and $\gamma\in[0,1)$ the discount factor — the agent’s goal is to learn a policy $\pi_\theta(a\mid s)$ that maximizes the expected return
 
-  * agentic RAG
-      * improve retrieval by: decomposed query, dynamically select best source, validation/error correction (evaluator agents check for hall/contradictions), context-aware query expansion, 
-      * RAGs need search engines
-  * enterprise
-      * types
-          * assistant - interacts with user. executes tasks
-          * contractor - fulfill defined outcomes
-          * manager of agents
-      * reaching contractors
-          * need for standardized contracts between requester and agents
-          * advantages
-              * defines outcomes precisely (validate, iterate)
-              * negotiate/classify task (avoiding ambiguity, fill out gaps)
-              * define rules for subcontracts
-	* agent types
-	    * planner agent - breaks down high level objectives into subtasks
-	    * retriver agent - knowledge acquisition from dynamic sources
-	    * execution agent - performs computations, generates responses, interacts with APIs
-	    * evaluator agent - make sure responses are valid, consistent, coherent, relevant
+```math
+J(\pi_\theta) = \mathbb{E}_{\tau\sim\pi_\theta}\Bigl[\sum_{t=0}^\infty \gamma^t R(s_t,a_t)\Bigr].
+```
 
-* evaluations
-  * agent success metrics
-      * goal completion rate
-      * critical task/interaction completion
-      * attempts success rate
-      * latency
-  * components
-      * accessing agent capabilities
-          * BFCL, τ-bench (tool calling), PlanBench (planning/reasoning), AgentBench (end-to-end), DABStep (Data Analyst)
-          * LLM/components metrics
-              * conversational workflow metrics
-      * trajectory and tool use
-          * expected vs actual trajectory - tool choice, strategies, efficiency (requires reference trajectory)
-              * exact math
-              * any/in-order match
-              * precision/recall
-      * evaluating final response
-  * way to go about it
-      * automatic metrics
-      * subjective
-      * LLM as a judge
-  * continual improvement of evaluation framework is essential
-  * multiagent evals:
-    * cooperation/coordination
-    * planning task and task assignment
-    * agent utilization
+This encapsulates the notions of perception (observations $o_t$), action (tool calls), reasoning (policy computation), and autonomy. 
+  * **Key properties**
+
+    1. **Goal-directed**: optimizes $J(\pi)$.
+    2. **Perception**: maps raw inputs to internal states $o_t=O(s_t)$.
+    3. **Action**: issues primitive and tool-based actions $a_t$.
+    4. **Reasoning**: employs internal latent chains $z_{1:n}$ (e.g., chain of thought).
+    5. **Autonomy**: operates in closed-loop without human step-by-step prompting.
+
+* **Building blocks of an agent**
+
+  * **ML model (e.g., LLM)**: parameterized policy $\pi_\theta(a\mid o)$ often pretrained then fine-tuned.
+  * **Central decision-making**
+
+    * **Instruction-based reasoning**: maximize $\log P_\theta(a\mid\text{instr},o)$.
+    * **Logical framework**: integrates symbolic constraints (e.g., type systems, invariants).
+  * **Orchestration layers** (cyclical sense–plan–act loop)
+
+    1. **Assimilate information**: update memory/state $m_t = f(m_{t-1},o_t)$.
+    2. **Internal reasoning**: generate latent steps $\{z_i\}$ via CoT or ToT.
+    3. **Reasoning for action**: choose $a_t = \arg\max_a Q(m_t,a)$.
+    4. **Planning & state maintenance**: hierarchical planning over time horizon $H$.
+    5. **Prompt-engineering frameworks**: structure $\text{prompt}=(\text{goal}, \text{history}, \text{tools})$.
+  * **Reasoning techniques**
+
+    * **Chain of Thought (CoT)**
+    * **Tree of Thoughts (ToT)**: explores a tree $\mathcal{T}$ of partial reasoning states $\{n\}$, using search to select optimal branch. 
+    * **ReAct**: interleaves reasoning ($z$) and acting ($a$) within a single trajectory, enabling on-the-fly API/tool calls.
+
+```math
+        P(y,z∣x)=∏i=1∣z∣P(zi∣x,z<i)×P(y∣x,z) , P(y,z\mid x) = \prod_{i=1}^{|z|}P(z_i\mid x,z_{<i})\times P(y\mid x,z)\,,
+```
+where $z$ is the sequence of intermediate reasoning steps. CoT prompting elicits $z$ to improve complex reasoning accuracy.
 
 
+* **Agent ops**
 
-Example Output of CrewAI
-* had to use ChatGPT because open source chatbots (even LLama 3 100 mil (check what it was exactly in size)) failed due to missunderstanding 
+  * **Tool management**: dynamic registry $\mathcal{T}$, select $t\in\mathcal{T}$ based on context.
+  * **Agent brain prompt**: structured tuple $(\text{goal}, \text{persona}, \text{instructions})$.
+  * **Task decomposition**: high-level goal $\rightarrow$ subgoals $\{g_i\}$ solved by specialized modules.
+
+* **Multi-agent aspect**
+
+  * **Specialized agents collaboration**
+
+    * **Team of experts**: decompose a complex task into subproblems $g_1,\dots,g_k$.
+    * **Role-specific contexts**: agent $i$ has local state $s^i_t$ and policy $\pi^i$.
+    * **Decentralized problem-solving**: global plan arises from local interactions over a communication graph $G$.
+    * **Adaptive execution**: only activate subset $\{\pi^i\}$ relevant to current context.
+    * **Explainability**: communication logs $\{m^i_t\}$ serve as audit trails.
+  * **Advantages over single agent**
+
+    1. **Accuracy & fault tolerance**: cross-checking among $\pi^i$.
+    2. **Scalability**: parallel execution of $\{\pi^i\}$.
+    3. **Complexity handling**: divide-and-conquer reduces combinatorial explosion.
+    4. **Bias mitigation**: ensemble of perspectives.
+  * **Components**
+
+    1. **Cognitive functions**: self-correction, refinement, planning modules.
+    2. **Tool integration**: dynamic tool registers, retrieval-augmented generation.
+    3. **Flow/routing**: determine message paths in $G$.
+    4. **Feedback loops / RL**: online updates of $\pi^i$ via reward signals.
+    5. **Agent registry**: discover/register/instantiate agents on demand.
+
+* **Agentic RAG**
+
+  * **Retrieval-Augmented Generation (RAG)**: augments $\pi_\theta$ with external corpus $\mathcal{D}$ via a retriever $q_\phi$. For input $x$, retrieve $\{d_j\}\sim q_\phi(\cdot\mid x)$ then generate
+
+```math
+    P(y\mid x) = \sum_j P_\theta(y\mid x,d_j)\,P_\phi(d_j\mid x).
+```
+
+RAG improves factuality and up-to-date knowledge.
+
+  * **Agentic RAG enhancements**
+
+    * **Decomposed queries**: split $x$ into subqueries $\{x_i\}$.
+    * **Dynamic source selection**: choose best $d_j$ per subquery.
+    * **Evaluator agents**: verify consistency, correct hallucinations.
+    * **Context-aware expansion**: iterative query refinement.
+
+* **Enterprise**
+
+  * **Agent types**
+
+    * **Assistant**: user-facing, handles natural language tasks.
+    * **Contractor**: fulfills well-defined outcomes under a “contract” $(\text{spec}, \text{metrics}, \text{SLAs})$.
+    * **Manager**: oversees and delegates to contractors.
+  * **Contracts**
+
+    * Precisely define: scope, deliverables, validation tests.
+    * Enable negotiation: resolve ambiguous requirements.
+    * Govern subcontracting: enforce rules on downstream agents.
+  * **Planner agent**: solves
+
+```math
+      \max_{\{g_i\}}\;U\bigl(\{\pi^j\bigl(g_i\bigr)\}\bigr)
+```
+
+  * **Retriever agent**: maintains dynamic index of live data.
+  * **Execution agent**: performs actions / API calls.
+  * **Evaluator agent**: computes validation metric $\delta(y,\hat y)$.
+
+* **Evaluations**
+
+  * **Agent success metrics**
+
+    * **Goal completion rate**: $\text{GCR} = \frac{\text{tasks succeeded}}{\text{tasks attempted}}$.
+    * **Critical task accuracy**: success on high-risk steps.
+    * **Tool-call success**: fraction of successful tool invocations.
+    * **Latency**: average response time per action.
+  * **Capability benchmarks**
+
+    * **BFCL**, **τ-bench** (tool calling), **PlanBench**, **AgentBench**, **DABStep**.
+  * **Trajectory & tool-use**
+
+    * Compare expected vs actual trajectory $\tau$:
+
+      * **Exact match**: $\tau_{\text{pred}} = \tau_{\text{ref}}$.
+      * **Order-insensitive**: set overlap metrics (precision/recall).
+  * **Evaluating final response**
+
+    * Automatic: BLEU, ROUGE, custom task metrics.
+    * Subjective: human ratings.
+    * LLM as judge: chain-of-thought critique models.
+  * **Continuous improvement**: iterate on evaluation protocols.
+
+* **Multiagent evals**
+
+  * **Cooperation / coordination**: measure synergy score
+
+```math
+      \text{Synergy} = \frac{J(\{\pi^i\}) - \sum_i J(\pi^i)}{\sum_i J(\pi^i)}.
+```
+
+  * **Planning & task assignment**: evaluate how well the planner allocates subgoals to specialists.
+  * **Agent utilization**: fraction of agents actively contributing per request.
+  * **Emergent behaviors**: detect unanticipated shortcuts or failure modes.
+
+
+
+
+
+## Example Output of CrewAI
+
+* Had to use ChatGPT because open source chatbots (even LLama 3 100 mil (check what it was exactly in size)) failed due to missunderstanding 
 output of website scrapping tools and failing to correct the error. Something that could be improve by adding validation LLM to the workflow but I was just playing
 to get a bit of hand-on experience with this type of open source multi agent orchestration experience. Worked both with ChatGPT 4o and distilled versions of it. 
-* biggest pain point for me if I were to develop an AI application would be limited number of predefined tools e.g. scrapping. I was using recommended default products
+* Biggest pain point for me if I were to develop an AI application would be limited number of predefined tools e.g. scrapping. I was using recommended default products
 that had free trial period but for someone doing it for longer period of time this might become major cost especially as number of users grows. Of course you can write
 these tools yourself but making them work really well and handle all expections is a lot of work. I would say you are better of paying and focusing on improving your
 core product. I think as this type of development become more mature higher competition will improve the situation. 
 
-input
+**Input**
 ```
 ** Welcome to Trip Planner Crew
 -------------------------------
@@ -177,7 +232,7 @@ What is the date range you are interested in traveling?
 What are some of yo
 ```
 
-output I got
+**Agentic workflow Output**
 ```
 * 7-Day Tokyo Itinerary (January 1 - January 10, 2025)
 
@@ -223,12 +278,12 @@ Enjoy your fantastic journey through Tokyo! Indulge in the food, soak in the ani
 ```
 
 
-My Thoughts
+# My Thoughts
+
 This will change the way people interact with unknown. No longer googling simple terms in search engines but ask agent to
 understand complex situation and provide relevant response. There is an interesting point to be made about how changing informaiton environment impacts today's society. 
 Types of mental tasks we peform are belived to improve our capabilities. There is a theory raise in [Amusing Ourselves to Death: Public Discourse in the Age of Show Business](https://www.amazon.com/Amusing-Ourselves-Death-Discourse-Business/dp/014303653X)
-that tools that offload our brain from performing these tasks cause
-us to lose skills and make us stupid. Before internet main hardship was obtaining information. Contributing to persistance and creativity. Although when the internet age got into full swing
+that tools that offload our brain from performing these tasks cause us to lose skills and make us stupid. Before internet main hardship was obtaining information. Contributing to persistance and creativity. Although when the internet age got into full swing
 obtaining information was no longer a problem but reliability of this information became an issue. Suddenly next generations are faced with new types of challanges.
 How to quickly filter and verify. This looks like a great motivation to exercise critical thinking skills and improve with how we decompose complex tasks
 into simple queries to which web can provide relevant information. In the age of agentic AI that can digest complex tasks skills like task decompositon will be no longer
