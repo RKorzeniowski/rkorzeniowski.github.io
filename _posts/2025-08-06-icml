@@ -1,6 +1,112 @@
-# ICML
+# ICML 2025: Inductive Moments, Reasoning Beyond Text, and the Future of Agents
 
-Concerning trend of lower quality invited talks. I was hoping that it's just my subjective experience or odd occurrence but 
-I heard from different people on different conferences this year that the level was lower. Since rise in secrecy in industry a lot of 
-most interesting done by very talented people is happening behind close doors. This lowers the pool of both topic and peolpe who can 
-contribute to those types of open source knowledge sharing sessions.
+The International Conference on Machine Learning 2025 brought together researchers from across the world to showcase cutting-edge advances in generative modeling, reasoning architectures, and agent design. Compared to last year’s focus on the physics of language models, this year’s program emphasized **inductive moment matching as a successor to diffusion**, the rise of **multi-modal reasoning**, and the **growing promise of world models as the backbone of agents**. Below, I highlight the most exciting themes, key papers, and my reflections on the state of the field.
+
+---
+
+## Inductive Moment Matching: A Successor to Diffusion
+
+The generative modeling community is buzzing about **Inductive Moment Matching (IMM)**, presented as the natural next step after diffusion models. Where diffusion relied on iterative denoising with stochastic processes, IMM reframes generation as **matching higher-order statistical moments inductively**, leading to faster convergence and more controllable sample quality.
+
+The **Inductive Moment Matching paper** quickly became the star of the conference, hailed not just for its strong results but also for its clean mathematical foundations. Many attendees drew parallels between this moment-based approach and early breakthroughs in score matching, predicting IMM could redefine how generative models are trained across text, images, and audio.
+
+---
+
+## Reasoning: Beyond Chains of Text
+
+A recurring theme this year was **reasoning across modalities**. While chain-of-thought (CoT) prompting has dominated text-based LLMs, researchers emphasized that **language is not always the best medium for reasoning**—especially for spatial, auditory, or uncertainty-laden problems.
+
+Highlights included:
+
+* **Multi-modal CoT**: Extending chain-of-thought to integrate spatial diagrams, sound representations, and structured symbolic forms.
+* **Communicating Uncertainty**: Several works explored methods for models to express *degrees of uncertainty* more faithfully, avoiding the overconfidence often seen in text-only systems.
+* **Bias in Text Reasoning**: Evidence showed that using only text can bias models toward overly verbal reasoning, missing more natural modalities like sketches or waveforms.
+
+Together, these sessions underscored a shift toward **reasoning as an inherently multi-modal activity**, better aligned with human cognition.
+
+---
+
+## Agents and World Models: The Road Ahead
+
+Another clear message from ICML 2025: **world models are back**. Long discussed as a way to ground AI systems, world models are now being framed as the most promising architecture for robust agents. Instead of reactive prompt-following, agents with predictive internal simulations can plan, adapt, and act more coherently in complex environments.
+
+The **Proactive Agents for Multi-Turn Text-to-Image Generation Under Uncertainty** paper exemplified this: agents used internal predictive rollouts to anticipate user clarifications, producing higher-quality, uncertainty-aware image generations. Similarly, advances in **synthetic gradients** sparked discussions about training world models and agents more efficiently by reducing backpropagation bottlenecks.
+
+---
+
+## What Is AGI? The Ambiguity Problem
+
+Several panels wrestled with the deceptively simple question: *what is AGI?* The lack of a precise, shared definition was seen not just as a philosophical curiosity but as a practical problem. Ambiguity in the term complicates research agendas, evaluation metrics, and even policy-making. Calls were made for the community to **standardize operational definitions**, at least in the context of benchmark design and model evaluation.
+
+---
+
+## Concerning Trends in Invited Talks
+
+One sobering observation: many attendees felt that **the quality of invited talks has declined**. While ICML has always been a place for ambitious, forward-looking presentations, this year several talks felt less inspiring, with fewer “wow moments.”
+
+This isn’t just anecdotal. I spoke to colleagues at other top conferences who reported the same impression. A plausible reason: as industry labs increasingly **conduct their most exciting research behind closed doors**, the pool of both topics and speakers available for open dissemination shrinks. This trend threatens the tradition of **open scientific exchange** at venues like ICML.
+
+---
+
+Here’s an expanded version of just the **Highlights in Presentations and Papers** section, with more detail and context:
+
+---
+
+## Highlights in Presentations and Papers
+
+### Presentation: SSM vs Transformers by Albert Gu
+
+One of the most anticipated talks of the conference was **Albert Gu’s deep dive into State Space Models (SSMs) versus Transformers**. Gu carefully dissected both architectures, highlighting where SSMs excel—particularly in **long-sequence modeling** with lower computational overhead—and where Transformers still dominate, especially in domains requiring flexible attention over heterogeneous inputs.
+
+The session was engaging not only for its technical clarity but also for its forward-looking perspective. Gu suggested that we may be moving toward **hybrid architectures**, where SSMs provide efficient backbone layers while attention mechanisms are used selectively for cross-modal reasoning or sparse contextual jumps. This resonated strongly with the audience, as it bridged the gap between elegant theory and practical engineering constraints.
+
+---
+
+### Paper: Inductive Moment Matching
+
+The **Inductive Moment Matching (IMM)** paper emerged as the clear highlight of ICML 2025. IMM introduces a new training paradigm that replaces diffusion’s noisy iterative steps with **moment-based alignment between generated and target distributions**.
+
+Key takeaways from the paper included:
+
+* **Efficiency**: IMM achieves faster convergence, requiring fewer steps to generate high-quality samples.
+* **Flexibility**: The framework generalizes naturally to continuous, discrete, and mixed data types.
+* **Control**: By explicitly modeling higher-order moments, IMM offers finer-grained control over sample diversity and fidelity.
+
+I see this work as a **successor to diffusion models**, with the potential to reshape the landscape of generative modeling much like score-based methods did just a few years ago.
+
+---
+
+### Paper: Proactive Agents for Multi-Turn Text-to-Image Generation Under Uncertainty
+
+This paper tackled one of the thorniest challenges in agent design: **handling uncertainty in multi-step creative tasks**. Traditional text-to-image systems are reactive—they wait for the user to clarify instructions or refine prompts. By contrast, these **proactive agents** use internal predictive rollouts to anticipate ambiguities and ask the right clarifying questions before generating.
+
+The results were striking: users reported not only higher-quality images but also a smoother creative experience, as the agent felt more like a **collaborator** than a tool. The paper connected naturally to the broader conference theme of **world models**, showing how predictive internal simulations can be harnessed for practical, user-facing applications.
+
+---
+
+### Paper: Audio Flamingo 3
+
+**Audio Flamingo 3** extended the Flamingo family of multi-modal models into the audio domain at unprecedented scale. The system demonstrated impressive abilities in **cross-modal reasoning**, such as answering questions about overlapping conversations, identifying sound sources in complex environments, and combining auditory context with visual and textual cues.
+
+What stood out most was the model’s ability to **reason with sound beyond transcription**—not just “what words were spoken,” but also *how* they were spoken, where they were spoken, and what environmental context could be inferred. This work underlined the importance of **non-text modalities for reasoning**, echoing the recurring theme across ICML 2025 that text alone is often insufficient for robust intelligence.
+
+---
+
+### Overall Reflections on Papers & Talks
+
+Together, these presentations and papers captured the **shifting frontiers of machine learning**:
+
+* From Transformers toward **SSM hybrids** for efficiency.
+* From diffusion toward **Inductive Moment Matching** for generative modeling.
+* From reactive systems toward **proactive, world-model-driven agents**.
+* From text-only reasoning toward **multi-modal integration**, with audio making a strong entrance.
+
+This collection of work showcased not just incremental progress, but **clear directional changes** in how the community thinks about reasoning, generation, and agency.
+
+---
+
+## Concluding Thoughts
+
+ICML 2025 felt like a conference in transition: diffusion’s dominance is giving way to inductive moment matching, reasoning is breaking free from text, and world models are regaining their role as the foundation of agents. At the same time, questions of definition (*what is AGI?*) and structure (*how do we ensure quality open talks when industry research is closed off?*) loom large.
+
+Despite these challenges, the intellectual energy at ICML remains high. If ICML 2024 was about rethinking the *physics of LLMs*, then ICML 2025 was about **induction, reasoning beyond text, and the quest to ground agents in predictive world models**.
