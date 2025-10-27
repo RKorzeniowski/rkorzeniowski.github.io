@@ -10,8 +10,10 @@ that creates stunning interactive environments from short textual prompts.
 Key concepts for world models are: representation learning, dynamics modeling and dealing with 
 estimating impact of actor actions on the environment. 
 
-They enable exciting new directions like embodied reasoning
+## Why are World Models exciting
 
+They enable exciting new directions like embodied reasoning. 
+Include examples of most recent results. 
 
 ## Background
 
