@@ -1,6 +1,5 @@
 # World Models
 
-
 ## What are World Models
 
 A world model is a model that learns to represent how the environment evolves in space, time and under actions. 
@@ -16,6 +15,25 @@ They enable exciting new directions like embodied reasoning
 
 ## Background
 
+Before we get into World Models we need to cover some concepts crucial for understanding how all the compoenents come together. I want to keep this post focused 
+on World Models so following explanations will more about giving relevant intuition and links to resources for study than detailed explanation. 
+
+### Representation Learning
+
+Quickly mention CNN and RNN here. 
+
+### Reinforcement Learning
+
+[RL refresher](https://lilianweng.github.io/posts/2018-02-19-rl-overview/) or UC Berkeley’s CS285
+
+### Dynamics Modeling
+
+
+
+## Evolution of World Models
+
+(add diagram)
+
 Work [World Models](https://arxiv.org/pdf/1803.10122) is one of the earlier works that clearly illustrates what is a world model.  
 It uses VAE (add link) to encode compact image representation, then models temporal dynamics with an RNN (add link) and trains a controller that gives
 actor tools to interact with the environment. It even utilizes to use created environment to train downstream ML models. 
@@ -26,11 +44,7 @@ the work with insights on how compact policies can work with learned features an
 [Contrastive Learning of Structured World Models](https://arxiv.org/pdf/1911.12247) adds compositional structure of objects and 
 relations with contrastive learning (explain later). 
 
-# [Mastering Diverse Control Tasks through World Models](https://www.nature.com/articles/s41586-025-08744-2?) (recent work on scaling to many tasks. Read and include if worth it)
-
-## RL Aspect
-[RL refresher](https://lilianweng.github.io/posts/2018-02-19-rl-overview/) or UC Berkeley’s CS285
-
+// [Mastering Diverse Control Tasks through World Models](https://www.nature.com/articles/s41586-025-08744-2?) (recent work on scaling to many tasks. Read and include if worth it)
 
 
 
