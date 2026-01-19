@@ -30,6 +30,12 @@ The goal here is intuition and context, not a full tutorial—links are provided
 
 ### Representation Learning
 
+Overall learning objective is expressed in the following equation. It shows us that dynamics learning is a **maximum likelihood** problem in latent space. This is not RL yet — just sequence modeling.
+
+$$
+\mathcal{L}*{\text{dyn}} = \sum_t \mathbb{E}*{q(z_t)} \left[ \log p_\theta(z_{t+1} \mid z_t, a_t) \right]
+$$
+
 At the heart of any world model is a latent representation of the environment.
 
 Raw observations—images, video frames, sensor streams—are typically high-dimensional and noisy. World models rely on representation learning to compress these observations into a latent space that is:
@@ -51,10 +57,17 @@ This perspective naturally connects representation learning with video predictio
 
 World models are most commonly studied in the context of reinforcement learning (RL).
 
-In RL, an agent interacts with an environment modeled as a Markov Decision Process (MDP), where:
+In RL, an agent interacts with an environment modeled as a Markov Decision Process (MDP) we refer to as $\mathcal{M}$, where:
 - The environment has a (possibly hidden) state
 - The agent takes actions
 - The environment transitions to a new state and emits a reward
+
+$$ 
+\mathcal{M} = (\mathcal{S}, \mathcal{A}, p, r, \gamma)
+$$
+
+- $\mathcal{S}$ is *latent*, not observed
+- $p$ is *learned*
 
 Traditional RL approaches fall into two broad categories:
 - **Model-free RL**: directly learns a policy or value function from experience
@@ -62,7 +75,15 @@ Traditional RL approaches fall into two broad categories:
 
 World models belong to the second category.
 
-Instead of modeling the environment in observation space, modern approaches learn a latent dynamics model. This model can then be used to:
+We can define policy as 
+
+$$
+a_t \sim \pi_\psi(a_t \mid z_t)
+$$
+
+As you can see policies operate on **latent states** and they are a bridge between representation learning and control.
+
+Next instead of modeling the environment in observation space, modern approaches learn a latent dynamics model. This model can then be used to:
 - Roll out imagined futures
 - Evaluate candidate actions
 - Train policies entirely inside the learned model
@@ -81,21 +102,87 @@ Common approaches include:
 - **Transformers for sequence modeling**
 Because real environments are stochastic and partially observable, modern world models usually incorporate uncertainty, predicting distributions over future states rather than single deterministic trajectories.
 
+This is the defining equation of a world model for Latent Transition Model (Action-Conditioned)! It makes a separation between memory $h_t$ and stochastic state $z_t$ explicit
+
+$$
+h_{t+1} = f_\theta(h_t, z_t, a_t)
+$$
+
+$$
+z_{t+1} \sim p_\theta(z_{t+1} \mid h_{t+1})
+$$
+
+Next with Stochastic Dynamics (MDN-RNN)
+
+$$
+p(z_{t+1} \mid z_t, a_t) = \sum_{k=1}^{K} \pi_k ,
+\mathcal{N}(\mu_k, \Sigma_k)
+$$
+
+This allows the model to represent multiple plausible futures rather than averaging them. We can see how multimodal futures are represented. It also connects to uncertainty and planning.
+
 ## Evolution of World Models
 
-(Add diagram here illustrating encoder → latent dynamics → decoder / policy)
+The paper “World Models” (Ha & Schmidhuber, 2018) is one of the earliest works that clearly illustrates the concept. As you can see based on equation below world model do not operate in raw space (e.g. pixel) but rather translate observations into a latent space.
 
-The paper “World Models” (Ha & Schmidhuber, 2018) is one of the earliest works that clearly illustrates the concept.
-The model consists of three components:
+$$
+z_t \sim q_\phi(z_t \mid o_t)
+$$
+
+- $o_t$: observation (e.g. image)
+- $z_t$: latent state
+- $q_\phi$: encoder network
+
+This diagram illustrates at high level the relation between encoder, latent dynamics and decoder/policy.
+
+$$
+o_t
+;\xrightarrow{\text{encoder}};
+z_t
+;\xrightarrow{\text{dynamics } + a_t};
+z_{t+1}
+;\xrightarrow{\text{decoder}};
+\hat{o}_{t+1}
+$$
+
+In terms of architecture the model consists of three components:
 - A **Variational Autoencoder (VAE)** that encodes images into a compact latent representation
 - A **recurrent neural network (RNN)** that models temporal dynamics in latent space
 - A **controller** that maps latent states to actions
 
+VAE Objective (Evidence Lower Bound) is described by following equation. As you can see there is a tradeoff between reconstruction fidelity and latent regularization. This will help us understand why latents are stochastic which is important for understanding uncertainty. 
+
+$$
+\mathcal{L}*{\text{VAE}} = \mathbb{E}*{q_\phi(z_t \mid o_t)} \big[ \log p_\theta(o_t \mid z_t) \big] \mathrm{KL}\big(q_\phi(z_t \mid o_t) ,|, p(z_t)\big)
+$$
+
+
 A particularly striking idea in this work is that the agent can be trained inside the learned world, using imagined rollouts rather than real environment interaction.
 
-**“Recurrent World Models Facilitate Policy Evolution”** extends this idea and provides insights into how compact policies can operate effectively when paired with learned latent dynamics.
+**“Recurrent World Models Facilitate Policy Evolution”** extends this idea and provides insights into how compact policies can operate effectively when paired with 
+learned latent dynamics. 
 
-**“Contrastive Learning of Structured World Models”** introduces compositional structure, explicitly modeling objects and relations using contrastive learning. This direction connects world models with object-centric representation learning and relational reasoning.
+This equation captures the core conceptual leap of world models and explains how real environment interaction is reduced
+
+$$ 
+(z_{t+1}, r_{t+1}) \sim p_\theta(\cdot \mid z_t, a_t) \quad \text{where} \quad a_t \sim \pi_\psi(\cdot \mid z_t) 
+$$
+
+Even then our objective is a "standard" RL objective. Despite imagination, the goal is unchanged
+
+$$
+J(\pi) = \mathbb{E}*{\tau \sim p*\theta, \pi} \left[ \sum_{t=0}^{T} \gamma^t r_t \right]
+$$
+
+**“Contrastive Learning of Structured World Models”** introduces compositional structure, explicitly modeling objects and relations using contrastive learning. This direction connects world models with object-centric representation learning and relational reasoning. From this we can learn how structure can be learned without reconstruction and how word models can be expressed as modern contrastive learning.
+
+$$
+\mathcal{L}_{\text{contrast}} = \log \frac{ \exp(\mathrm{sim}(z_{t+1}, \hat{z}*{t+1}))}{\sum*{z' \in \mathcal{N}} \exp(\mathrm{sim}(z', \hat{z}_{t+1}))}
+$$
+
+- $\hat{z}_{t+1}$ : predicted latent
+- $z_{t+1}$ : true next latent
+- $\mathcal{N}$ : negative samples
 
 More recent work such as **“Mastering Diverse Control Tasks through World Models”** demonstrates that these ideas can scale to many tasks, long horizons, and complex environments, suggesting world models are not just toy examples but practical foundations for general agents.
 
@@ -104,7 +191,7 @@ More recent work such as **“Mastering Diverse Control Tasks through World Mode
 
 World models are not a single architectural pattern but a family of approaches that differ primarily in **how they represent state**, **how dynamics are modeled**, and **how planning or control is performed**. A useful way to categorize them is by the structure of the latent space and the modeling assumptions imposed on it.
 
-### Latent State–Space World Models
+### Latent State–Space
 
 These models compress observations into a single latent vector that serves as the agent’s internal state. Dynamics are modeled directly in this latent space.
 
@@ -114,7 +201,7 @@ These models compress observations into a single latent vector that serves as th
 
 This class prioritizes **simplicity and scalability** but often sacrifices interpretability.
 
-### Object-Centric and Structured World Models
+### Object-Centric and Structured
 
 Here, the latent state is decomposed into **multiple entities**, such as objects or slots, often with explicit relational structure.
 
@@ -124,7 +211,7 @@ Here, the latent state is decomposed into **multiple entities**, such as objects
 
 These models aim to capture **compositionality and generalization**, enabling transfer across scenes with varying numbers of objects.
 
-### Transformer-Based and Sequence World Models
+### Transformer-Based and Sequence
 
 Rather than explicitly separating representation and dynamics, these models treat the world as a **sequence prediction problem**.
 
