@@ -1,6 +1,6 @@
 # World Models
 
-## What are World Models?
+## What Are World Models
 
 A world model is a system that learns to represent how an environment evolves over space, time, and under actions.
 Typically, it predicts future states, observations, or rewards conditioned on past observations and actions.
@@ -13,7 +13,7 @@ At a high level, world models combine three core ideas:
 - Dynamics modeling – learning how those latent states evolve over tim
 - Action conditioning – modeling how an agent’s actions influence future states
 
-## Why are World Models exciting
+## Why Are World Models Exciting
 
 World models enable qualitatively new capabilities that go beyond traditional perception or control:
 - Embodied reasoning: agents can reason about consequences of actions by simulating futures internally
