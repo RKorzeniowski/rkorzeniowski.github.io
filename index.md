@@ -6,3 +6,5 @@ I’ve always believed that true understanding comes from building things yourse
 This blog focuses on what excites me most: emerging paradigms (like diffusion models), transformative trends (think agentic AI), practical techniques that drive real-world results, and deep dives into _why_ systems work. While AI moves fast, I aim to spotlight ideas with lasting impact.
 
 Ultimately, this space is my learning playground. Being able to explain clearly is the ultimate test of understanding, after all. If my explorations shed light on AI’s mysteries for you too? Consider that the best bonus!
+
+I am using as much LLM's to turn my initial knowledge scaffolds into form digestable to humans as possoble.
