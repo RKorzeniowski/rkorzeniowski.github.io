@@ -323,3 +323,8 @@ If successful at scale, world models may become the substrate on which general i
 - Recurrent World Models Facilitate Policy Evolution (2018)
 - Contrastive Learning of Structured World Models (2019)
 - Genie-3 (2024)
+
+<!--
+- learn about model predictive control (MPC) and mb it's worth extending this post with that
+- extend citations and more up-to-date reserach. Kinda hard to find good papers since everything really good is closed doors now
+-->
