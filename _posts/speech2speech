@@ -1,0 +1,39 @@
+- problem statement
+- S2S componenets
+
+- TTS
+  - why Vocoders are outdated
+  - find papers with motivation for going to discret for diversity
+  - find new papers about going from discrete to continues to gain fidelity
+  - tldr attn_based one-to-many mapping problem + unstable when scaling and limited latent?, transformers can't get continues inputs like melspectrograms, 
+  idea! let's quantize them with RVQs (GAN paper, Tortoise, sth else?). Transformers produce diverse i.e. expressive speech but 
+- ASR
+  - how much detail do I want to go here? Any unique aspect from S2S perspective that I can talk about?
+  - opposite to TTS as it benefits from noisy speech to be robust. This means hard to get an encoder that works for both
+- Encoders (RVQ etc)
+  - VQVAE https://arxiv.org/abs/1711.00937 (issues, blurry upper freq bands. Sound like metalicity. Small from MSE perspective but easy to hear for a human)
+  - GAN loss https://arxiv.org/pdf/2306.06546 (fix -> use GANs to deal with things that MSE has a hard time picking up)
+  - discrete survey https://arxiv.org/pdf/2506.10274
+- Duplex
+- Challanges
+  - need for longer context -> telescoping attention https://arxiv.org/pdf/2305.19466
+  - how to come up with response or call tools without text in the middle?
+  - how to deal with latency and real time factor
+
+- good background on RVQ, ASR, TTS https://arxiv.org/pdf/2511.01299
+
+Duplex
+- a new open-source from a startup: https://arxiv.org/pdf/2601.11141
+- 7B duplex model from Tencent: https://www.arxiv.org/pdf/2602.09823
+- nvidia full duplex https://research.nvidia.com/labs/adlr/personaplex/
+- dialog https://arxiv.org/html/2505.09558v1
+
+- summary https://arxiv.org/pdf/2411.13577
+- https://arxiv.org/pdf/2503.04721
+- text free https://arxiv.org/pdf/2203.16502
+- text free https://openreview.net/pdf?id=Ttndg2Jl5F
+- text free https://arxiv.org/pdf/2501.04877
+- text + speech https://arxiv.org/pdf/2409.06666
+- text + speech https://arxiv.org/pdf/2410.00037
+- not fully duplex https://arxiv.org/pdf/2408.16725
+- not fully duplex https://arxiv.org/pdf/2410.11190
