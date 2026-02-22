@@ -1,0 +1,112 @@
+# Are Tools A Game Changer for LLM's?
+
+## Table of Contents
+
+## Introduction
+
+Let's do a small analogy to lay out the motivation for learning about tool calling. Think of an LLM without tool calling as a brilliant writer who can only produce text around it's training data.
+With tool calling, that writer can now also use a calculator, search the internet for current information, send emails, or even control other applications.
+This transforms LLMs from passive text generators into active agents capable of interacting with the world. In otheer words tool cover certain capabilities and free up capacity.
+Some of them we could teach the model if we increased the number of weights and increased importance of relevant data. Some like advanced calculus require bigger investment.
+You can think of this capacity as "Is it worth attending collage?". Usually yes because if the knowledge is internatlized it gives you more "thought flexibility" but the answer 
+depends on the tuition. If you have to pick between paying rent or attending collage it seems like less in-depth courses online are a soild alternative.
+
+## Educational Example
+
+
+
+
+
+<html>
+<head>
+    <title>Mermaid Diagram</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>
+    mermaid.initialize({ startOnLoad: true });
+</script>
+</head>
+<body>
+    <div class="mermaid">
+      flowchart LR
+      UQ([User<br/>Query]) --> RG([Response<br/>Generation])
+      subgraph Iterative Solving
+        RG([Response<br/>Generation]) --> TP([Task<br/>Planning]) --> TS([Tool<br/>Selection]) --> TC([Tool<br/>Calling]) --> RG([Response<br/>Generation])
+    
+      
+      end
+        TC([Tool<br/>Calling]) --> O([Output])
+    </div>
+</body>
+</html>
+
+<!--
+## Section Skeleton
+- Table of Contents
+- Intro (Motivation)
+- Simple Setup (doing above from motivation)
+- Problems we run into
+  - How to teach LLM to use tools (when to ask, how to ask, how to use responses, where to get the data from to train the model to do prev 3)
+    - when to ask: when model has low confidence (LLMs can provide cross entropy (sth better?) on produced tokens but directly stating uncertantity is open problem)
+    - how to ask: Chain of Thought (linear), Tree of Thoughts (exploration and backtracking), Graph of Thoughts (networked reasoning)
+  - How to deal with too many tools
+    - S: Retriver (ToolReranker Mechanism -> toolbench: dual-encoder retrival (good representation important for being able to operate in follow up. Go over how to get it), Adaptive Truncation: category filter, cross-encoder reranking: endpoint matching)
+      - problem: protocol fragmentation. Needs verbose provider-specific adapters, manual schema generation, cncurrency managment overhead (ToolRegistry as solution. Standardized json for LLM)
+  - How to add tools to already trained model
+      - S1: in-context instruction following: few-shot prompting -> ZS flexibility and swapable tools, context window limit, token cost
+      - S2: FT on API datasets -> low lat, internalized capabilities, high retraining cost, static knowledge. Toolformer
+  - What if more than one tool is needed (seq or parralel)
+    - S: planning stage
+    - Q: How to deal with error propagation
+      - S: loops with feedback and explicit error correction in the data
+  - How to check if tools are useful in actual usage
+    - S: recall (for tool retrival)
+    - S: pass rate (API took LLM query as valid or complete the task)
+    - S: EM/LLM-as-judge (final resonse or intermidate state checks)
+    - S: winrate (better than baseline)
+    - S: hallucination rate (calling non-existing tools)
+    - S: efficency (number of steps required to solve)
+  - How to deal with reliability (hallucinations)
+  - How to deal with high latency (LLM not being responsive when waiting for all tools and loops to close)
+  - Base model having limited context for utilizing all the extra data
+  - How to deal with multiple modalities 
+- Solutions to those problems
+  - Validator (self-reflection)
+  - Perciver (feedback input e.g. UI)
+  - Controller (planning and intent)
+  - Retriver (search and select)
+  - Executor (call API)
+- Future
+  - tools for MM e.g. VLM on Mobile-Agnets that need text, audio and video
+  - tools needed for multi-agent swarms at scale (network problem)
+  - standardised protocol emerging instead of ad-hoc APIs
+  - tools for embodied AI (moving from talk to action)
+    - cognition: probabilistic alignment to define when to act
+    - planning: graph based reasoning
+    - execution: protocol-agnostic infrastructure for scaling
+  - tools for social agents
+
+## TODO
+- what aspect I want to focus on?
+  - lower level on tools and most recent advancements (blog already on agents and agent topology)
+    - how single agnet can use tools
+    - what tools are out there
+  - probably this will be code only because it's more at eng stage but math might end up useful for complex tools find something where explaining well requires it
+- go over high level sections
+- read up more with AI tools help for scanning
+- pick framework for code examples
+- graphs might be useful here for quick understanding
+
+## Notes
+
+I did it with crewai but it's a bit too high level for learning about it. Try both and recheck what it was using under the hood
+langchain seems like a good open source tool for examples -> https://sparkco.ai/blog/advanced-tool-calling-in-llm-agents-a-deep-dive
+
+## Resources
+
+review 2024 - https://arxiv.org/pdf/2405.17935
+- 
+review 2025 - https://link.springer.com/article/10.1007/s41019-025-00296-9
+when to call tools - https://arxiv.org/abs/2503.06708
+decision token - https://aclanthology.org/2025.naacl-industry.9.pdf
+engineering practical tool-calling deployment - https://arxiv.org/abs/2507.10593
+-->
