@@ -7,4 +7,4 @@ This blog focuses on what excites me most: emerging paradigms (like diffusion mo
 
 Ultimately, this space is my learning playground. Being able to explain clearly is the ultimate test of understanding, after all. If my explorations shed light on AI’s mysteries for you too? Consider that the best bonus!
 
-I am using as much LLM's to turn my initial knowledge scaffolds into form digestable to humans as possoble.
+I am using as much LLM's to turn my initial knowledge scaffolds into a digestable form as possible.
